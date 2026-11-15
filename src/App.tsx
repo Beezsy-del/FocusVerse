@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { TimerProvider } from './context/TimerContext';
 import { CHARACTERS } from './data/characters';
 import { Character } from './types/character';
 import { HomePage } from './pages/HomePage';
@@ -103,18 +104,35 @@ export const App: React.FC = () => {
     }
   });
 
+  const restoringHistory = useRef(false);
+  const currentRoute = useRef({ view, characterId: selectedCharacter.id });
+  currentRoute.current = { view, characterId: selectedCharacter.id };
+  useEffect(() => {
+    const restore = () => {
+      const next = getInitialState();
+      if (currentRoute.current.view !== next.initialView || currentRoute.current.characterId !== next.foundChar.id) {
+        restoringHistory.current = true;
+      }
+      setView(next.initialView);
+      setSelectedCharacter(next.foundChar);
+    };
+    window.addEventListener('hashchange', restore);
+    window.addEventListener('popstate', restore);
+    return () => {
+      window.removeEventListener('hashchange', restore);
+      window.removeEventListener('popstate', restore);
+    };
+  }, []);
+
   // Sync state to URL hash & localStorage
   useEffect(() => {
-    if (view === 'HOME') {
-      window.location.hash = 'home';
-    } else if (view === 'SELECT') {
-      window.location.hash = 'select';
-    } else if (view === 'TIMER') {
-      window.location.hash = `timer?char=${selectedCharacter.id}`;
-    } else {
-      window.location.hash = view.toLowerCase();
+    const hash = view === 'TIMER' ? `#timer?char=${selectedCharacter.id}` : `#${view.toLowerCase()}`;
+    if (restoringHistory.current) {
+      restoringHistory.current = false;
+    } else if (window.location.hash !== hash) {
+      // pushState does not dispatch hashchange, avoiding restoration races.
+      window.history.pushState(null, '', hash);
     }
-
     try {
       localStorage.setItem('focusverse_view', view);
       localStorage.setItem('focusverse_selected_char', selectedCharacter.id);
@@ -188,6 +206,7 @@ export const App: React.FC = () => {
   const isMainHUDView = view !== 'HOME' && view !== 'SELECT';
 
   return (
+    <TimerProvider character={selectedCharacter} initialTask={activeTask}>
     <div className="min-h-screen bg-void text-gray-100 font-mono flex flex-col relative selection:bg-arcade-gold selection:text-black">
       {/* Global Modals: Quick Action (Ctrl+K) & Level Up Fanfare */}
       <QuickActionModal
@@ -317,6 +336,7 @@ export const App: React.FC = () => {
       {/* Global Credits Footer on non-workspace views */}
       {view !== 'TIMER' && view !== 'HOME' && <Footer />}
     </div>
+    </TimerProvider>
   );
 };
 

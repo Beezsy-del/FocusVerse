@@ -1,66 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import {useCompanionPerformance} from '../hooks/useCompanionPerformance';
+import {StarkActor} from './StarkActor';
 import { Headphones, NotebookPen, ListTodo, Sparkles, Radio, RotateCw, Wrench, ScanLine } from 'lucide-react';
 import { UserFocusAction } from './AudioCodeFooter';
 import './SpiderStudyRoom.css';
 import './StarkWorkshop.css';
 
 type Activity = 'reactor' | 'diagnostics';
-// Same room-space scale as Peter: head y=270, desktop y=455, planted feet y=577.
-// Body is behind the bench; articulated arms and tools are above its surface.
-function StarkActor({ layer, activity, frame }: { layer: 'body' | 'hands'; activity: Activity; frame: number }) {
-  const step = [0, .35, 0, -.35][frame % 4];
-  return <g transform="translate(480 262) scale(3)" stroke="#242333" strokeWidth="1" strokeLinejoin="miter" data-stark-layer={layer}>
-    {layer === 'body' ? <>
-      <path d="M24 63H35V72L13 80L19 96L12 99L4 79V74Z" fill="#72343b"/>
-      <path d="M12 91L19 91L22 100L25 102V105H8L5 103L9 100Z" fill="#a64a43"/>
-      <path d="M17 62H29V71L5 78L2 94H-6L-7 76L-4 72Z" fill="#b65349"/>
-      <path d="M16 69L0 77L-2 90" fill="none" stroke="#d4965f" strokeWidth="3"/>
-      <path d="M-6 90H3L2 100L-1 104H-17V101L-9 98Z" fill="#ac4941"/>
-      <path d="M-5 94H1M-10 100H1M12 95H19M10 102H22" stroke="#e2a169" fill="none"/>
-      <path d="M18 27H28L38 33L36 51V64L29 68H17L12 61V48L10 34Z" fill="#ab4d47"/>
-      <path d="M12 39L18 43L17 55L13 59ZM32 39L37 38L35 58L30 61L29 51Z" fill="#c69d5b"/>
-      <path d="M15 34L21 37L19 43L15 41ZM28 36L33 33L35 40L29 43Z" fill="#cd7561" strokeWidth=".6"/>
-      <path d="M20 48H28L30 52H18ZM18 55H31L29 58H19Z" fill="#793a40" strokeWidth=".6"/>
-      <path d="M15 32L22 35H28L34 31M19 53H29L31 57H18L16 61H30" fill="none" stroke="#e2926b"/>
-      <path d="M18 59H29M19 64H27" stroke="#5d3039" strokeWidth="2"/>
-      <circle cx="24" cy="42" r="5" fill="#294c5a"/><circle cx="24" cy="42" r="3.5" fill="#a1e0dc" stroke="#689a9d"/><circle cx="24" cy="42" r="2" fill="#e1efe0" stroke="none"/>
-      <path d="M19 24H28V30L24 32L19 29Z" fill="#65323a"/>
-      <path d="M13 6L18 2H28L33 7V21L28 28H19L13 22Z" fill="#a84942"/>
-      <path d="M15 6L19 3H27L31 7L30 20L27 25H20L15 20Z" fill="#80383e" stroke="none"/>
-      <path d="M16 7L21 8H26L30 6L29 18L27 23H19L16 18Z" fill="#d0ab65"/>
-      <path d="M16 7L19 9V17L21 20L20 23H19L16 18Z" fill="#957349" stroke="none"/>
-      <path d="M27 9L29 8L28 16L26 18L27 21L25 23H27L29 18Z" fill="#b18a50" stroke="none"/>
-      <path d="M14 10V19L17 23M31 9V20L28 25M19 5H27" fill="none" stroke="#df8c68" strokeWidth=".6"/>
-      <path d="M17 8L20 10H27L29 8M18 19L20 22H26L28 19" fill="none" stroke="#edc58b"/>
-      <path d="M16 13L22 14M25 14L30 12" stroke="#d4f3e6" strokeWidth="1.7"/>
-      <path d="M21 21H26M23 15L22 18H25" fill="none" stroke="#765848"/>
-    </> : [false, true].map(near => {
-      const wrist = near ? [activity === 'reactor' ? 9 + step : 13 + step, 65 + step] : [-3, 64];
-      const shoulder = near ? [34, 34] : [13, 34];
-      const elbow = near ? [38, 54] : [7, 53];
-      return <g key={String(near)} data-stark-hand={near ? 'near' : 'far'}>
-        <path d={`M${shoulder}L${elbow}L${wrist}`} fill="none" stroke="#242333" strokeWidth="10"/>
-        <path d={`M${shoulder}L${elbow}`} fill="none" stroke={near ? '#c49a5d' : '#976746'} strokeWidth="7"/>
-        <path d={`M${elbow}L${wrist}`} fill="none" stroke={near ? '#b9574b' : '#853d40'} strokeWidth="8"/>
-        <g transform={`translate(${elbow}) rotate(${Math.atan2(wrist[1]-elbow[1], wrist[0]-elbow[0])*180/Math.PI})`} fill="none" strokeWidth=".65">
-          <path d="M5-3V3M10-3V3M15-3V3M1-2H19" stroke="#71353b"/>
-          <path d="M5-2H9M11-2H15" stroke="#e3a170"/>
-        </g>
-        <path d={`M${elbow[0]} ${elbow[1]-2}L${wrist[0]} ${wrist[1]-2}`} stroke="#e19369" fill="none"/>
-        <path d={`M${shoulder[0]-4} ${shoulder[1]-4}h8l2 5h-10Z`} fill="#b45348"/>
-        <g transform={`translate(${wrist})`}><path d="M-4-3H3L5 0V3H1L-4 2Z" fill="#b9584c"/><path d="M-3 0H3M-2-2V2M1-2V2" stroke="#e8ac72" strokeWidth=".5"/>
-          {near && (activity === 'reactor' ? <><path d="M0-7V5" stroke="#c8d1c8"/><path d="M0-7V-2" stroke="#d5aa65" strokeWidth="2"/></> : <path d="M0-5L3 6" stroke="#bce5df"/>)}
-        </g>
-      </g>;
-    })}
-  </g>;
-}
 
 export function StarkWorkshop({ action, onMusic, onNotes, onTasks, onCompanionClick }: {
   action: UserFocusAction; onMusic: () => void; onNotes: () => void; onTasks: () => void; onCompanionClick: () => void;
 }) {
   const [manual, setManual] = useState<Activity | null>(null);
-  const [tick, setTick] = useState(0);
   const [lamp, setLamp] = useState(true);
   const [hidden, setHidden] = useState(document.hidden);
   const [reduced, setReduced] = useState(() => matchMedia('(prefers-reduced-motion: reduce)').matches);
@@ -72,17 +23,13 @@ export function StarkWorkshop({ action, onMusic, onNotes, onTasks, onCompanionCl
     document.addEventListener('visibilitychange', visibility); media.addEventListener('change', motion);
     return () => { document.removeEventListener('visibilitychange', visibility); media.removeEventListener('change', motion); };
   }, []);
-  useEffect(() => {
-    if (resting || hidden || reduced) return;
-    const timer = setInterval(() => setTick(t => t + 1), 240);
-    return () => clearInterval(timer);
-  }, [resting, hidden, reduced]);
-  const activity = manual ?? (Math.floor(tick / 116) % 2 ? 'diagnostics' : 'reactor');
-  const frame = resting || reduced ? 0 : tick;
-  return <section className={`spider-study-room stark-workshop ${lamp ? 'lamp-on' : ''} ${hidden || resting ? 'room-hidden' : ''}`} data-sanctuary="tony-stark" data-activity={activity} aria-label="Tony Stark’s after-hours workshop">
+  const performance=useCompanionPerformance('tony-stark',manual===null?null:manual==='reactor'?0:1,resting,28000);
+  const activity:Activity=performance.activity===0?'reactor':'diagnostics';
+  const frame = 0;
+  return <section className={`spider-study-room stark-workshop ${lamp ? 'lamp-on' : ''} ${hidden || resting ? 'room-hidden' : ''}`} data-sanctuary="tony-stark" data-activity={activity} data-phase={performance.phase} aria-label="Tony Stark’s after-hours workshop">
     <header className="queens-heading"><div><div className="queens-caption"><span><i/> MALIBU, CALIFORNIA</span><span>STARK INDUSTRIES</span></div><h2>TONY’S WORKSHOP</h2><p>Music, notes, and tasks. Select an object to open it.</p></div><span className="queens-live"><Radio size={13}/>{action === 'FOCUSING' ? 'FOCUSING' : resting ? 'BREAK' : 'READY'}</span></header>
     <div className="queens-stage">
-      <div className="room-scene-label"><span className="room-scene-dot"/> ARC REACTOR LAB <span> / </span> {resting ? 'TAKING A BREATHER' : activity === 'reactor' ? 'CALIBRATING' : 'DIAGNOSTICS'}</div>
+      <div className="room-scene-label"><span className="room-scene-dot"/> ARC REACTOR LAB <span> / </span> {resting ? 'TAKING A BREATHER' : performance.phase!=='action' ? 'WORKSHOP STANDBY' : activity === 'reactor' ? 'CALIBRATING' : 'DIAGNOSTICS'}</div>
       <svg viewBox="0 0 1000 660" role="img" aria-label="Illustrated ocean-side workshop with a seated Iron Man calibrating a reactor behind a workbench, armor alcove, shelves, and warm task lighting">
         <defs>
           <linearGradient id="st-wall" x2="1" y2="1"><stop stopColor="#192137"/><stop offset=".55" stopColor="#34303a"/><stop offset="1" stopColor="#674432"/></linearGradient>
@@ -118,7 +65,7 @@ export function StarkWorkshop({ action, onMusic, onNotes, onTasks, onCompanionCl
         <path d="M225 578H780L854 627H182Z" fill="#3e4148"/><path d="M245 586H766L802 614H221Z" fill="none" stroke="#89715d" strokeWidth="3"/>
         <ellipse cx="561" cy="573" rx="200" ry="32" fill="#0c1422" opacity=".4"/>
         <path d="M535 364Q565 347 595 364L604 479H537Z" fill="#464955" stroke="#232334" strokeWidth="8"/><path d="M490 474H604V492H490Z" fill="#75645c"/><path d="M507 492L498 574M590 492L607 574" stroke="#222533" strokeWidth="10"/>
-        <StarkActor layer="body" activity={activity} frame={frame}/>
+        <StarkActor layer="body" activity={activity} frame={frame} phase={performance.phase} variation={performance.variation}/>
         <path d="M256 444H810L838 506H228Z" fill="url(#st-bench)" stroke="#302d32" strokeWidth="4"/><path d="M229 505H837V521H229Z" fill="#41424b"/><path d="M235 506H831" stroke="#b49c7c" strokeWidth="3"/>
         <path d="M253 520L246 612M806 520L815 612" stroke="#292b36" strokeWidth="18"/><path d="M259 522L253 605M799 522L806 605" stroke="#847568" strokeWidth="4"/>
         <path d="M697 522H792V582H697Z" fill="#4d4850" stroke="#282936" strokeWidth="4"/><path d="M700 549H790M733 535H755M733 562H755" stroke="#ad9271" strokeWidth="3"/>
@@ -129,7 +76,7 @@ export function StarkWorkshop({ action, onMusic, onNotes, onTasks, onCompanionCl
         <path d="M463 449H548L563 482H463Z" fill="#29434b" stroke="#8aa59d" strokeWidth="2"/>
         <ellipse cx="513" cy="464" rx="20" ry="12" fill="#a5a494" stroke="#344553" strokeWidth="3"/><ellipse cx="513" cy="462" rx="12" ry="7" fill="#99d9d3"/><path d="M505 462H521M513 456V469" stroke="#e2ecda" strokeWidth="2"/>
         <path d="M565 451L598 454L620 479L583 480Z" fill="#d3bd92"/><path d="M576 458L598 461M581 465L604 468" stroke="#84745b" strokeWidth="2"/>
-        <StarkActor layer="hands" activity={activity} frame={frame}/>
+        <StarkActor layer="hands" activity={activity} frame={frame} phase={performance.phase} variation={performance.variation}/>
         <path d="M647 475V371L705 330" fill="none" stroke="#172835" strokeWidth="12"/><path d="M647 475V371L705 330" fill="none" stroke="#81918a" strokeWidth="5"/><path d="M684 322L716 317L740 344L676 355Z" fill="#be7147" stroke="#402f31" strokeWidth="4"/><path d="M679 354L737 344" stroke="#ffe1a1" strokeWidth="5"/><ellipse cx="648" cy="480" rx="30" ry="7" fill="#3d494b"/>
         <ellipse className="desk-light" cx="638" cy="438" rx="250" ry="190" fill="url(#st-warm)"/>
         <path d="M620 449H638V472H620ZM638 454H648V464H638" fill="#b77e59" stroke="#523e34" strokeWidth="3"/>
@@ -146,6 +93,6 @@ export function StarkWorkshop({ action, onMusic, onNotes, onTasks, onCompanionCl
       <button className="room-object stark-companion" aria-label="Encourage Tony Stark" onClick={onCompanionClick}><span>Tony Stark</span></button>
     </div>
     <div className="room-activity-bar"><span className="room-activity-label"><Sparkles size={13}/> COMPANION ACTIVITY</span><div className="room-activity-options" role="group" aria-label="Companion activity"><button aria-pressed={manual === null} onClick={() => setManual(null)}><RotateCw size={13}/>Auto</button><button aria-pressed={manual === 'reactor'} disabled={resting} onClick={() => setManual('reactor')}><Wrench size={13}/>Calibrate</button><button aria-pressed={manual === 'diagnostics'} disabled={resting} onClick={() => setManual('diagnostics')}><ScanLine size={13}/>Diagnostics</button></div></div>
-    <div className="queens-footer"><div><span className="queens-kicker">TONY // ACTIVITY</span><p aria-live="polite">{resting ? 'Taking a break.' : activity === 'reactor' ? 'Calibrating the arc reactor.' : 'Checking reactor diagnostics.'}</p></div><div className="room-shortcuts"><button onClick={onMusic}><Headphones size={14}/>Music</button><button onClick={onNotes}><NotebookPen size={14}/>Notes</button><button onClick={onTasks}><ListTodo size={14}/>Tasks</button></div></div>
+    <div className="queens-footer"><div><span className="queens-kicker">TONY // ACTIVITY</span><p aria-live="polite">{resting ? 'Taking a break.' : performance.phase!=='action' ? 'Considering the next adjustment.' : activity === 'reactor' ? 'Calibrating the arc reactor.' : 'Checking reactor diagnostics.'}</p></div><div className="room-shortcuts"><button onClick={onMusic}><Headphones size={14}/>Music</button><button onClick={onNotes}><NotebookPen size={14}/>Notes</button><button onClick={onTasks}><ListTodo size={14}/>Tasks</button></div></div>
   </section>;
 }

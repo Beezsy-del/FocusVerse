@@ -1,0 +1,24 @@
+/* Natural-position SVGs: animated upper body and joints never move the feet. */
+.reference-actor .reference-upper-body { animation:reference-breathe 6.8s ease-in-out infinite; }
+.actor-naruto-uzumaki .reference-upper-body { animation-duration:5.7s; }
+.reference-actor .reference-head { transform-origin:0px 55px; animation:reference-observe 19s ease-in-out infinite; }
+.actor-naruto-uzumaki .reference-head { animation-duration:23s; }
+.reference-actor .reference-arm { transition:transform 1.2s ease-in-out; }
+.actor-bruce-wayne.activity-scanner .near-arm { animation:bat-inspect 13s ease-in-out infinite; }
+.actor-bruce-wayne.activity-wrench .near-arm { animation:bat-calibrate 7s ease-in-out infinite; }
+.actor-naruto-uzumaki.activity-brush .near-arm { animation:shinobi-write 8s ease-in-out infinite; }
+.actor-naruto-uzumaki.activity-orb .near-arm { animation:shinobi-balance 9s ease-in-out infinite; }
+.naruto-eyes { transform-origin:0px 25px; animation:shinobi-blink 9.7s linear infinite; }
+.naruto-headband-tail { transform-origin:21px 14px; animation:shinobi-ribbon 8s ease-in-out infinite; }
+.bat-cape { transform-origin:0px 65px; animation:bat-cape-settle 11s ease-in-out infinite; }
+@keyframes reference-breathe { 50% { transform:translateY(-.65px); } }
+@keyframes reference-observe { 0%,65%,100% { transform:rotate(0deg); } 73%,83% { transform:rotate(-2deg); } }
+@keyframes bat-inspect { 0%,30%,100% { transform:rotate(0deg); } 45%,65% { transform:rotate(-7deg); } }
+@keyframes bat-calibrate { 0%,35%,100% { transform:rotate(0deg); } 45%,60% { transform:rotate(1.2deg); } 52%,67% { transform:rotate(-1deg); } }
+@keyframes shinobi-write { 0%,30%,100% { transform:rotate(0deg); } 40%,55%,70% { transform:rotate(1deg); } 47%,62%,77% { transform:rotate(-.8deg); } }
+@keyframes shinobi-balance { 0%,100% { transform:rotate(0deg); } 40%,60% { transform:rotate(-3deg); } }
+@keyframes shinobi-blink { 0%,44%,47%,80%,83%,100% { transform:scaleY(1); } 45.5%,81.5% { transform:scaleY(.08); } }
+@keyframes shinobi-ribbon { 50% { transform:rotate(2deg); } }
+@keyframes bat-cape-settle { 50% { transform:skewX(.3deg); } }
+.sanctuary-paused .reference-actor *, .room-hidden .reference-actor * { animation-play-state:paused!important; }
+@media(prefers-reduced-motion:reduce) { .reference-actor * { animation:none!important; transition:none!important; } }

@@ -1,0 +1,98 @@
+/* The Infinity chamber is isolated from the other trainers' shared UI. */
+.focus-workspace[data-trainer="gojo-satoru"] { --chamber-edge:#33304d; --chamber-muted:#aaa3bb; }
+[data-trainer="gojo-satoru"] .workspace-main { max-width:1540px; padding:28px 30px; }
+[data-trainer="gojo-satoru"] .workspace-grid { grid-template-columns:minmax(300px,340px) minmax(0,1fr); gap:24px; }
+[data-trainer="gojo-satoru"] .workspace-toolbar { max-width:1480px; }
+[data-trainer="gojo-satoru"] .timer-panel { background:linear-gradient(160deg,#181329,#0e0c1b 70%); border:1px solid var(--chamber-edge); border-top:2px solid #8d7950; box-shadow:none; padding:20px 18px; }
+[data-trainer="gojo-satoru"] .timer-panel > .grid:first-of-type { gap:4px; margin-bottom:18px; }
+[data-trainer="gojo-satoru"] .timer-panel > .grid:first-of-type button { padding:10px 2px; font-size:10px; box-shadow:none; }
+[data-trainer="gojo-satoru"] .timer-panel button { transition:color .18s,background-color .18s,border-color .18s; }
+[data-trainer="gojo-satoru"] .timer-panel button:focus-visible,
+[data-trainer="gojo-satoru"] .timer-panel select:focus-visible { outline:2px solid #7cdeeb; outline-offset:3px; }
+[data-trainer="gojo-satoru"] .timer-panel > .flex button { min-height:32px; }
+[data-trainer="gojo-satoru"] .timer-panel .timer-display { margin:20px -2px 18px; padding:26px 10px 19px; border:0; border-top:1px solid #39314f; border-bottom:1px solid #39314f; box-shadow:none; background:radial-gradient(ellipse at 50% 30%,#24203b60,transparent 75%); }
+[data-trainer="gojo-satoru"] .timer-display > .font-pixel { font-size:clamp(28px,3.1vw,40px); padding:15px 0 19px; color:#f8d06c; text-shadow:0 0 24px #f5c24216; font-variant-numeric:tabular-nums; }
+[data-trainer="gojo-satoru"] .timer-display > div:last-child { font-size:9px; }
+[data-trainer="gojo-satoru"] .timer-panel > .flex:has(button svg.lucide-play),
+[data-trainer="gojo-satoru"] .timer-panel > .flex:has(button svg.lucide-pause) { margin:20px 0; }
+[data-trainer="gojo-satoru"] .timer-panel > .grid.grid-cols-2 { border:0; border-top:1px solid #33304d; padding:16px 0; background:none; gap:18px; }
+[data-trainer="gojo-satoru"] .timer-panel select { min-height:32px; }
+[data-trainer="gojo-satoru"] .timer-panel .grid-cols-2 button { width:28px; height:30px; }
+[data-trainer="gojo-satoru"] .timer-panel .text-gray-500,
+[data-trainer="gojo-satoru"] .timer-panel .text-gray-600 { color:#a29ab2; }
+[data-trainer="gojo-satoru"] .timer-panel > .timer-progress > div:first-child > span:first-child,
+[data-trainer="gojo-satoru"] .timer-panel > .timer-progress > div:first-child > span:last-child { visibility:hidden; }
+[data-trainer="gojo-satoru"] .timer-panel > .timer-progress > div:first-child { justify-content:center; }
+[data-sanctuary="gojo-satoru"].character-sanctuary { border:1px solid #37324f; box-shadow:0 16px 60px #03061150; background:#100e20; }
+[data-sanctuary="gojo-satoru"] .queens-heading { padding:22px 24px; border-bottom:1px solid #34304b; background:linear-gradient(110deg,#171329,#0e1020); }
+[data-sanctuary="gojo-satoru"] .queens-caption { font-size:9px; letter-spacing:1.5px; }
+[data-sanctuary="gojo-satoru"] .queens-caption span:last-child { display:none; }
+[data-sanctuary="gojo-satoru"] .queens-heading h2 { font-size:clamp(12px,1.3vw,18px); color:#eee6d1; margin:12px 0 10px; }
+[data-sanctuary="gojo-satoru"] .queens-heading p { color:#a59db8; }
+[data-sanctuary="gojo-satoru"] .queens-live { border:0; border-left:1px solid #3d4c63; background:none; font:10px 'JetBrains Mono',monospace; padding:10px 0 10px 16px; }
+[data-sanctuary="gojo-satoru"] .queens-stage::after { border:0; box-shadow:inset 0 0 65px #06081880; }
+[data-sanctuary="gojo-satoru"] .room-scene-label { border:0; background:#080d1bc9; color:#a6c0d0; font-size:9px; letter-spacing:.6px; bottom:18px; left:20px; }
+[data-sanctuary="gojo-satoru"] .gojo-actor-light { filter:drop-shadow(-2px 0 1px #89cbf03b) drop-shadow(3px 1px 8px #7466d335); }
+[data-sanctuary="gojo-satoru"] .gojo-room-props { filter:brightness(.72) saturate(.65); }
+[data-sanctuary="gojo-satoru"] .sanctuary-stage > path:last-child { opacity:.12; }
+[data-sanctuary="gojo-satoru"] .room-activity-bar { padding:14px 20px; border-top:1px solid #34304b; border-bottom:1px solid #29253c; background:#110f20; flex-wrap:wrap; }
+[data-sanctuary="gojo-satoru"] .room-activity-label { font-size:9px; color:#a49ab7; }
+[data-sanctuary="gojo-satoru"] .room-activity-label svg { display:none; }
+[data-sanctuary="gojo-satoru"] .room-activity-options { gap:4px; }
+[data-sanctuary="gojo-satoru"] .room-activity-options button { background:transparent; border-color:transparent; min-height:34px; font-size:10px; padding:7px 9px; }
+[data-sanctuary="gojo-satoru"] .room-activity-options button[aria-pressed=true] { color:#f5ce6c; border-color:#6b593b; background:#33291c60; }
+[data-sanctuary="gojo-satoru"] .queens-footer { background:#110f20; padding:18px 20px; }
+[data-sanctuary="gojo-satoru"] .queens-kicker { font-size:8px; color:#86cbdc; }
+[data-sanctuary="gojo-satoru"] .queens-footer p { font-size:11px; }
+[data-sanctuary="gojo-satoru"] .room-shortcuts { gap:2px; }
+[data-sanctuary="gojo-satoru"] .room-shortcuts button { border:0; border-left:1px solid #39314f; background:none; box-shadow:none; padding:8px 12px; font-size:10px; color:#c6bfd7; }
+[data-sanctuary="gojo-satoru"] .room-shortcuts button:hover { color:#f5ce6c; background:#242034; }
+[data-trainer="gojo-satoru"] .scene-companion-note { text-align:left; display:flex; gap:18px; align-items:baseline; padding:18px 4px; }
+[data-trainer="gojo-satoru"] .scene-companion-note > span { flex-shrink:0; font-size:10px; }
+[data-trainer="gojo-satoru"] .scene-companion-note p { margin:0; font-size:11px; }
+.gojo-orbit { transform-origin:565px 315px; animation:infinity-orbit 80s linear infinite; }
+.gojo-infinity { opacity:.65; transition:opacity 1.5s; pointer-events:none; }
+[data-focus-state="FOCUSING"] .gojo-infinity { opacity:1; }
+[data-focus-state="IDLE"] .gojo-orbit { animation-play-state:paused; }
+[data-focus-state="IDLE"] .gojo-infinity { opacity:.35; }
+@keyframes infinity-orbit { to { transform:rotate(360deg); } }
+@media(max-width:1100px) {
+ [data-trainer="gojo-satoru"] .workspace-main { padding:20px 16px; }
+ [data-trainer="gojo-satoru"] .workspace-grid { grid-template-columns:300px minmax(0,1fr); gap:16px; }
+ [data-sanctuary="gojo-satoru"] .queens-heading { padding:18px 16px; }
+ [data-sanctuary="gojo-satoru"] .queens-live { font-size:9px; padding-left:10px; }
+ [data-sanctuary="gojo-satoru"] .queens-footer { flex-wrap:wrap; }
+}
+@media(max-width:850px) {
+ [data-trainer="gojo-satoru"] .workspace-grid { grid-template-columns:1fr; }
+ [data-trainer="gojo-satoru"] .workspace-scene { grid-row:auto; }
+ [data-trainer="gojo-satoru"] .timer-panel { padding:18px; }
+ [data-trainer="gojo-satoru"] .timer-display > .font-pixel { font-size:38px; }
+ [data-trainer="gojo-satoru"] .workspace-toolbar > div:first-child { flex-wrap:wrap; }
+ [data-trainer="gojo-satoru"] .workspace-toolbar select { max-width:100%; }
+ [data-trainer="gojo-satoru"] .scene-companion-note { flex-direction:column; gap:6px; }
+}
+@media(max-width:480px) {
+ [data-trainer="gojo-satoru"] .workspace-main { padding:14px 12px; }
+ [data-sanctuary="gojo-satoru"] .queens-heading { gap:10px; }
+ [data-sanctuary="gojo-satoru"] .queens-heading h2 { font-size:11px; line-height:1.8; }
+ [data-sanctuary="gojo-satoru"] .queens-caption { font-size:8px; letter-spacing:0; }
+ [data-sanctuary="gojo-satoru"] .queens-heading p { font-size:10px; }
+ [data-sanctuary="gojo-satoru"] .room-activity-bar { padding:12px; }
+ [data-sanctuary="gojo-satoru"] .room-activity-options { width:100%; }
+ [data-sanctuary="gojo-satoru"] .room-scene-label { font-size:7px; bottom:9px; left:9px; padding:6px; }
+ [data-sanctuary="gojo-satoru"] .queens-footer { padding:14px; }
+ .gojo-orbit { animation:none; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+ [data-trainer="gojo-satoru"] *, [data-trainer="gojo-satoru"] *::after { animation:none!important; transition:none!important; }
+}
+@media(max-width:850px) {
+ [data-trainer="gojo-satoru"] .workspace-toolbar > div:first-child > div:last-child { display:flex; border-left:0; padding:0; }
+}
+
+@media(max-width:600px) {
+ body:has(.focus-workspace[data-trainer="gojo-satoru"]) header[data-active-trainer="gojo-satoru"] > div:first-child { flex-wrap:wrap; row-gap:12px; }
+ body:has(.focus-workspace[data-trainer="gojo-satoru"]) header[data-active-trainer="gojo-satoru"] > div:first-child > div:first-child { width:100%; }
+}

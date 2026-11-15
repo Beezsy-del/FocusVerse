@@ -1,0 +1,1142 @@
+[
+  {
+    "id": "miles-morales",
+    "pose": "idle",
+    "appearance": "masked",
+    "tool": "spray",
+    "path": "public/assets/characters/illustrated-study-rigs/miles-morales-idle.svg",
+    "viewBox": "383 139 390 455",
+    "anchor": [
+      578,
+      224
+    ],
+    "scale": 1.14,
+    "stance": "standing",
+    "ground": 304
+  },
+  {
+    "id": "miles-morales",
+    "pose": "observe",
+    "appearance": "masked",
+    "tool": "spray",
+    "path": "public/assets/characters/illustrated-study-rigs/miles-morales-observe.svg",
+    "viewBox": "383 139 390 455",
+    "anchor": [
+      578,
+      224
+    ],
+    "scale": 1.14,
+    "stance": "standing",
+    "ground": 304
+  },
+  {
+    "id": "miles-morales",
+    "pose": "action-0",
+    "appearance": "masked",
+    "tool": "spray",
+    "path": "public/assets/characters/illustrated-study-rigs/miles-morales-action-0.svg",
+    "viewBox": "383 139 390 455",
+    "anchor": [
+      578,
+      224
+    ],
+    "scale": 1.14,
+    "stance": "standing",
+    "ground": 304
+  },
+  {
+    "id": "miles-morales",
+    "pose": "action-1",
+    "appearance": "masked",
+    "tool": "spark",
+    "path": "public/assets/characters/illustrated-study-rigs/miles-morales-action-1.svg",
+    "viewBox": "383 139 390 455",
+    "anchor": [
+      578,
+      224
+    ],
+    "scale": 1.14,
+    "stance": "standing",
+    "ground": 304
+  },
+  {
+    "id": "miles-morales",
+    "pose": "idle",
+    "appearance": "unmasked",
+    "tool": "spray",
+    "path": "public/assets/characters/illustrated-study-rigs/miles-morales-idle-unmasked.svg",
+    "viewBox": "383 139 390 455",
+    "anchor": [
+      578,
+      224
+    ],
+    "scale": 1.14,
+    "stance": "standing",
+    "ground": 304
+  },
+  {
+    "id": "miles-morales",
+    "pose": "observe",
+    "appearance": "unmasked",
+    "tool": "spray",
+    "path": "public/assets/characters/illustrated-study-rigs/miles-morales-observe-unmasked.svg",
+    "viewBox": "383 139 390 455",
+    "anchor": [
+      578,
+      224
+    ],
+    "scale": 1.14,
+    "stance": "standing",
+    "ground": 304
+  },
+  {
+    "id": "miles-morales",
+    "pose": "action-0",
+    "appearance": "unmasked",
+    "tool": "spray",
+    "path": "public/assets/characters/illustrated-study-rigs/miles-morales-action-0-unmasked.svg",
+    "viewBox": "383 139 390 455",
+    "anchor": [
+      578,
+      224
+    ],
+    "scale": 1.14,
+    "stance": "standing",
+    "ground": 304
+  },
+  {
+    "id": "miles-morales",
+    "pose": "action-1",
+    "appearance": "unmasked",
+    "tool": "spark",
+    "path": "public/assets/characters/illustrated-study-rigs/miles-morales-action-1-unmasked.svg",
+    "viewBox": "383 139 390 455",
+    "anchor": [
+      578,
+      224
+    ],
+    "scale": 1.14,
+    "stance": "standing",
+    "ground": 304
+  },
+  {
+    "id": "gwen-stacy",
+    "pose": "idle",
+    "appearance": "masked",
+    "tool": "sticks",
+    "path": "public/assets/characters/illustrated-study-rigs/gwen-stacy-idle.svg",
+    "viewBox": "375 146 390 455",
+    "anchor": [
+      570,
+      231
+    ],
+    "scale": 1.12,
+    "stance": "seated",
+    "ground": 301
+  },
+  {
+    "id": "gwen-stacy",
+    "pose": "observe",
+    "appearance": "masked",
+    "tool": "sticks",
+    "path": "public/assets/characters/illustrated-study-rigs/gwen-stacy-observe.svg",
+    "viewBox": "375 146 390 455",
+    "anchor": [
+      570,
+      231
+    ],
+    "scale": 1.12,
+    "stance": "seated",
+    "ground": 301
+  },
+  {
+    "id": "gwen-stacy",
+    "pose": "action-0",
+    "appearance": "masked",
+    "tool": "sticks",
+    "path": "public/assets/characters/illustrated-study-rigs/gwen-stacy-action-0.svg",
+    "viewBox": "375 146 390 455",
+    "anchor": [
+      570,
+      231
+    ],
+    "scale": 1.12,
+    "stance": "seated",
+    "ground": 301
+  },
+  {
+    "id": "gwen-stacy",
+    "pose": "action-1",
+    "appearance": "masked",
+    "tool": "cymbal",
+    "path": "public/assets/characters/illustrated-study-rigs/gwen-stacy-action-1.svg",
+    "viewBox": "375 146 390 455",
+    "anchor": [
+      570,
+      231
+    ],
+    "scale": 1.12,
+    "stance": "seated",
+    "ground": 301
+  },
+  {
+    "id": "gwen-stacy",
+    "pose": "idle",
+    "appearance": "unmasked",
+    "tool": "sticks",
+    "path": "public/assets/characters/illustrated-study-rigs/gwen-stacy-idle-unmasked.svg",
+    "viewBox": "375 146 390 455",
+    "anchor": [
+      570,
+      231
+    ],
+    "scale": 1.12,
+    "stance": "seated",
+    "ground": 301
+  },
+  {
+    "id": "gwen-stacy",
+    "pose": "observe",
+    "appearance": "unmasked",
+    "tool": "sticks",
+    "path": "public/assets/characters/illustrated-study-rigs/gwen-stacy-observe-unmasked.svg",
+    "viewBox": "375 146 390 455",
+    "anchor": [
+      570,
+      231
+    ],
+    "scale": 1.12,
+    "stance": "seated",
+    "ground": 301
+  },
+  {
+    "id": "gwen-stacy",
+    "pose": "action-0",
+    "appearance": "unmasked",
+    "tool": "sticks",
+    "path": "public/assets/characters/illustrated-study-rigs/gwen-stacy-action-0-unmasked.svg",
+    "viewBox": "375 146 390 455",
+    "anchor": [
+      570,
+      231
+    ],
+    "scale": 1.12,
+    "stance": "seated",
+    "ground": 301
+  },
+  {
+    "id": "gwen-stacy",
+    "pose": "action-1",
+    "appearance": "unmasked",
+    "tool": "cymbal",
+    "path": "public/assets/characters/illustrated-study-rigs/gwen-stacy-action-1-unmasked.svg",
+    "viewBox": "375 146 390 455",
+    "anchor": [
+      570,
+      231
+    ],
+    "scale": 1.12,
+    "stance": "seated",
+    "ground": 301
+  },
+  {
+    "id": "l-lawliet",
+    "pose": "idle",
+    "appearance": "masked",
+    "tool": "pencil",
+    "path": "public/assets/characters/illustrated-study-rigs/l-lawliet-idle.svg",
+    "viewBox": "446 162 390 455",
+    "anchor": [
+      641,
+      247
+    ],
+    "scale": 1.16,
+    "stance": "crouch",
+    "ground": 216
+  },
+  {
+    "id": "l-lawliet",
+    "pose": "observe",
+    "appearance": "masked",
+    "tool": "pencil",
+    "path": "public/assets/characters/illustrated-study-rigs/l-lawliet-observe.svg",
+    "viewBox": "446 162 390 455",
+    "anchor": [
+      641,
+      247
+    ],
+    "scale": 1.16,
+    "stance": "crouch",
+    "ground": 216
+  },
+  {
+    "id": "l-lawliet",
+    "pose": "action-0",
+    "appearance": "masked",
+    "tool": "pencil",
+    "path": "public/assets/characters/illustrated-study-rigs/l-lawliet-action-0.svg",
+    "viewBox": "446 162 390 455",
+    "anchor": [
+      641,
+      247
+    ],
+    "scale": 1.16,
+    "stance": "crouch",
+    "ground": 216
+  },
+  {
+    "id": "l-lawliet",
+    "pose": "action-1",
+    "appearance": "masked",
+    "tool": "sugar",
+    "path": "public/assets/characters/illustrated-study-rigs/l-lawliet-action-1.svg",
+    "viewBox": "446 162 390 455",
+    "anchor": [
+      641,
+      247
+    ],
+    "scale": 1.16,
+    "stance": "crouch",
+    "ground": 216
+  },
+  {
+    "id": "tony-stark",
+    "pose": "idle",
+    "appearance": "masked",
+    "tool": "reactor",
+    "path": "public/assets/characters/illustrated-study-rigs/tony-stark-idle.svg",
+    "viewBox": "364 149 390 455",
+    "anchor": [
+      559,
+      234
+    ],
+    "scale": 1.12,
+    "stance": "seated",
+    "ground": 306
+  },
+  {
+    "id": "tony-stark",
+    "pose": "observe",
+    "appearance": "masked",
+    "tool": "reactor",
+    "path": "public/assets/characters/illustrated-study-rigs/tony-stark-observe.svg",
+    "viewBox": "364 149 390 455",
+    "anchor": [
+      559,
+      234
+    ],
+    "scale": 1.12,
+    "stance": "seated",
+    "ground": 306
+  },
+  {
+    "id": "tony-stark",
+    "pose": "action-0",
+    "appearance": "masked",
+    "tool": "reactor",
+    "path": "public/assets/characters/illustrated-study-rigs/tony-stark-action-0.svg",
+    "viewBox": "364 149 390 455",
+    "anchor": [
+      559,
+      234
+    ],
+    "scale": 1.12,
+    "stance": "seated",
+    "ground": 306
+  },
+  {
+    "id": "tony-stark",
+    "pose": "action-1",
+    "appearance": "masked",
+    "tool": "diagnostics",
+    "path": "public/assets/characters/illustrated-study-rigs/tony-stark-action-1.svg",
+    "viewBox": "364 149 390 455",
+    "anchor": [
+      559,
+      234
+    ],
+    "scale": 1.12,
+    "stance": "seated",
+    "ground": 306
+  },
+  {
+    "id": "gojo-satoru",
+    "pose": "idle",
+    "appearance": "masked",
+    "tool": "infinity",
+    "path": "public/assets/characters/illustrated-study-rigs/gojo-satoru-idle.svg",
+    "viewBox": "399 133 390 455",
+    "anchor": [
+      594,
+      218
+    ],
+    "scale": 1.16,
+    "stance": "standing",
+    "ground": 303
+  },
+  {
+    "id": "gojo-satoru",
+    "pose": "observe",
+    "appearance": "masked",
+    "tool": "infinity",
+    "path": "public/assets/characters/illustrated-study-rigs/gojo-satoru-observe.svg",
+    "viewBox": "399 133 390 455",
+    "anchor": [
+      594,
+      218
+    ],
+    "scale": 1.16,
+    "stance": "standing",
+    "ground": 303
+  },
+  {
+    "id": "gojo-satoru",
+    "pose": "action-0",
+    "appearance": "masked",
+    "tool": "infinity",
+    "path": "public/assets/characters/illustrated-study-rigs/gojo-satoru-action-0.svg",
+    "viewBox": "399 133 390 455",
+    "anchor": [
+      594,
+      218
+    ],
+    "scale": 1.16,
+    "stance": "standing",
+    "ground": 303
+  },
+  {
+    "id": "gojo-satoru",
+    "pose": "action-1",
+    "appearance": "masked",
+    "tool": "blindfold",
+    "path": "public/assets/characters/illustrated-study-rigs/gojo-satoru-action-1.svg",
+    "viewBox": "399 133 390 455",
+    "anchor": [
+      594,
+      218
+    ],
+    "scale": 1.16,
+    "stance": "standing",
+    "ground": 303
+  },
+  {
+    "id": "levi-ackerman",
+    "pose": "idle",
+    "appearance": "masked",
+    "tool": "blade",
+    "path": "public/assets/characters/illustrated-study-rigs/levi-ackerman-idle.svg",
+    "viewBox": "376 169 390 455",
+    "anchor": [
+      571,
+      254
+    ],
+    "scale": 1.06,
+    "stance": "seated",
+    "ground": 301
+  },
+  {
+    "id": "levi-ackerman",
+    "pose": "observe",
+    "appearance": "masked",
+    "tool": "blade",
+    "path": "public/assets/characters/illustrated-study-rigs/levi-ackerman-observe.svg",
+    "viewBox": "376 169 390 455",
+    "anchor": [
+      571,
+      254
+    ],
+    "scale": 1.06,
+    "stance": "seated",
+    "ground": 301
+  },
+  {
+    "id": "levi-ackerman",
+    "pose": "action-0",
+    "appearance": "masked",
+    "tool": "blade",
+    "path": "public/assets/characters/illustrated-study-rigs/levi-ackerman-action-0.svg",
+    "viewBox": "376 169 390 455",
+    "anchor": [
+      571,
+      254
+    ],
+    "scale": 1.06,
+    "stance": "seated",
+    "ground": 301
+  },
+  {
+    "id": "levi-ackerman",
+    "pose": "action-1",
+    "appearance": "masked",
+    "tool": "cup",
+    "path": "public/assets/characters/illustrated-study-rigs/levi-ackerman-action-1.svg",
+    "viewBox": "376 169 390 455",
+    "anchor": [
+      571,
+      254
+    ],
+    "scale": 1.06,
+    "stance": "seated",
+    "ground": 301
+  },
+  {
+    "id": "officer-k",
+    "pose": "idle",
+    "appearance": "masked",
+    "tool": "scanner",
+    "path": "public/assets/characters/illustrated-study-rigs/officer-k-idle.svg",
+    "viewBox": "416 145 390 455",
+    "anchor": [
+      611,
+      230
+    ],
+    "scale": 1.13,
+    "stance": "standing",
+    "ground": 300
+  },
+  {
+    "id": "officer-k",
+    "pose": "observe",
+    "appearance": "masked",
+    "tool": "scanner",
+    "path": "public/assets/characters/illustrated-study-rigs/officer-k-observe.svg",
+    "viewBox": "416 145 390 455",
+    "anchor": [
+      611,
+      230
+    ],
+    "scale": 1.13,
+    "stance": "standing",
+    "ground": 300
+  },
+  {
+    "id": "officer-k",
+    "pose": "action-0",
+    "appearance": "masked",
+    "tool": "scanner",
+    "path": "public/assets/characters/illustrated-study-rigs/officer-k-action-0.svg",
+    "viewBox": "416 145 390 455",
+    "anchor": [
+      611,
+      230
+    ],
+    "scale": 1.13,
+    "stance": "standing",
+    "ground": 300
+  },
+  {
+    "id": "officer-k",
+    "pose": "action-1",
+    "appearance": "masked",
+    "tool": "horse",
+    "path": "public/assets/characters/illustrated-study-rigs/officer-k-action-1.svg",
+    "viewBox": "416 145 390 455",
+    "anchor": [
+      611,
+      230
+    ],
+    "scale": 1.13,
+    "stance": "standing",
+    "ground": 300
+  },
+  {
+    "id": "neo",
+    "pose": "idle",
+    "appearance": "masked",
+    "tool": "type",
+    "path": "public/assets/characters/illustrated-study-rigs/neo-idle.svg",
+    "viewBox": "383 155 390 455",
+    "anchor": [
+      578,
+      240
+    ],
+    "scale": 1.1,
+    "stance": "seated",
+    "ground": 300
+  },
+  {
+    "id": "neo",
+    "pose": "observe",
+    "appearance": "masked",
+    "tool": "type",
+    "path": "public/assets/characters/illustrated-study-rigs/neo-observe.svg",
+    "viewBox": "383 155 390 455",
+    "anchor": [
+      578,
+      240
+    ],
+    "scale": 1.1,
+    "stance": "seated",
+    "ground": 300
+  },
+  {
+    "id": "neo",
+    "pose": "action-0",
+    "appearance": "masked",
+    "tool": "type",
+    "path": "public/assets/characters/illustrated-study-rigs/neo-action-0.svg",
+    "viewBox": "383 155 390 455",
+    "anchor": [
+      578,
+      240
+    ],
+    "scale": 1.1,
+    "stance": "seated",
+    "ground": 300
+  },
+  {
+    "id": "neo",
+    "pose": "action-1",
+    "appearance": "masked",
+    "tool": "spoon",
+    "path": "public/assets/characters/illustrated-study-rigs/neo-action-1.svg",
+    "viewBox": "383 155 390 455",
+    "anchor": [
+      578,
+      240
+    ],
+    "scale": 1.1,
+    "stance": "seated",
+    "ground": 300
+  },
+  {
+    "id": "elsa",
+    "pose": "idle",
+    "appearance": "masked",
+    "tool": "snow",
+    "path": "public/assets/characters/illustrated-study-rigs/elsa-idle.svg",
+    "viewBox": "397 144 390 455",
+    "anchor": [
+      592,
+      229
+    ],
+    "scale": 1.12,
+    "stance": "gown",
+    "ground": 302
+  },
+  {
+    "id": "elsa",
+    "pose": "observe",
+    "appearance": "masked",
+    "tool": "snow",
+    "path": "public/assets/characters/illustrated-study-rigs/elsa-observe.svg",
+    "viewBox": "397 144 390 455",
+    "anchor": [
+      592,
+      229
+    ],
+    "scale": 1.12,
+    "stance": "gown",
+    "ground": 302
+  },
+  {
+    "id": "elsa",
+    "pose": "action-0",
+    "appearance": "masked",
+    "tool": "snow",
+    "path": "public/assets/characters/illustrated-study-rigs/elsa-action-0.svg",
+    "viewBox": "397 144 390 455",
+    "anchor": [
+      592,
+      229
+    ],
+    "scale": 1.12,
+    "stance": "gown",
+    "ground": 302
+  },
+  {
+    "id": "elsa",
+    "pose": "action-1",
+    "appearance": "masked",
+    "tool": "ribbon",
+    "path": "public/assets/characters/illustrated-study-rigs/elsa-action-1.svg",
+    "viewBox": "397 144 390 455",
+    "anchor": [
+      592,
+      229
+    ],
+    "scale": 1.12,
+    "stance": "gown",
+    "ground": 302
+  },
+  {
+    "id": "rapunzel",
+    "pose": "idle",
+    "appearance": "masked",
+    "tool": "brush",
+    "path": "public/assets/characters/illustrated-study-rigs/rapunzel-idle.svg",
+    "viewBox": "414 162 390 455",
+    "anchor": [
+      609,
+      247
+    ],
+    "scale": 1.08,
+    "stance": "seated",
+    "ground": 302
+  },
+  {
+    "id": "rapunzel",
+    "pose": "observe",
+    "appearance": "masked",
+    "tool": "brush",
+    "path": "public/assets/characters/illustrated-study-rigs/rapunzel-observe.svg",
+    "viewBox": "414 162 390 455",
+    "anchor": [
+      609,
+      247
+    ],
+    "scale": 1.08,
+    "stance": "seated",
+    "ground": 302
+  },
+  {
+    "id": "rapunzel",
+    "pose": "action-0",
+    "appearance": "masked",
+    "tool": "brush",
+    "path": "public/assets/characters/illustrated-study-rigs/rapunzel-action-0.svg",
+    "viewBox": "414 162 390 455",
+    "anchor": [
+      609,
+      247
+    ],
+    "scale": 1.08,
+    "stance": "seated",
+    "ground": 302
+  },
+  {
+    "id": "rapunzel",
+    "pose": "action-1",
+    "appearance": "masked",
+    "tool": "lantern",
+    "path": "public/assets/characters/illustrated-study-rigs/rapunzel-action-1.svg",
+    "viewBox": "414 162 390 455",
+    "anchor": [
+      609,
+      247
+    ],
+    "scale": 1.08,
+    "stance": "seated",
+    "ground": 302
+  },
+  {
+    "id": "moana",
+    "pose": "idle",
+    "appearance": "masked",
+    "tool": "compass",
+    "path": "public/assets/characters/illustrated-study-rigs/moana-idle.svg",
+    "viewBox": "401 154 390 455",
+    "anchor": [
+      596,
+      239
+    ],
+    "scale": 1.1,
+    "stance": "standing",
+    "ground": 304
+  },
+  {
+    "id": "moana",
+    "pose": "observe",
+    "appearance": "masked",
+    "tool": "compass",
+    "path": "public/assets/characters/illustrated-study-rigs/moana-observe.svg",
+    "viewBox": "401 154 390 455",
+    "anchor": [
+      596,
+      239
+    ],
+    "scale": 1.1,
+    "stance": "standing",
+    "ground": 304
+  },
+  {
+    "id": "moana",
+    "pose": "action-0",
+    "appearance": "masked",
+    "tool": "compass",
+    "path": "public/assets/characters/illustrated-study-rigs/moana-action-0.svg",
+    "viewBox": "401 154 390 455",
+    "anchor": [
+      596,
+      239
+    ],
+    "scale": 1.1,
+    "stance": "standing",
+    "ground": 304
+  },
+  {
+    "id": "moana",
+    "pose": "action-1",
+    "appearance": "masked",
+    "tool": "paddle",
+    "path": "public/assets/characters/illustrated-study-rigs/moana-action-1.svg",
+    "viewBox": "401 154 390 455",
+    "anchor": [
+      596,
+      239
+    ],
+    "scale": 1.1,
+    "stance": "standing",
+    "ground": 304
+  },
+  {
+    "id": "hermione-granger",
+    "pose": "idle",
+    "appearance": "masked",
+    "tool": "quill",
+    "path": "public/assets/characters/illustrated-study-rigs/hermione-granger-idle.svg",
+    "viewBox": "433 147 390 455",
+    "anchor": [
+      628,
+      232
+    ],
+    "scale": 1.1,
+    "stance": "standing",
+    "ground": 304
+  },
+  {
+    "id": "hermione-granger",
+    "pose": "observe",
+    "appearance": "masked",
+    "tool": "quill",
+    "path": "public/assets/characters/illustrated-study-rigs/hermione-granger-observe.svg",
+    "viewBox": "433 147 390 455",
+    "anchor": [
+      628,
+      232
+    ],
+    "scale": 1.1,
+    "stance": "standing",
+    "ground": 304
+  },
+  {
+    "id": "hermione-granger",
+    "pose": "action-0",
+    "appearance": "masked",
+    "tool": "quill",
+    "path": "public/assets/characters/illustrated-study-rigs/hermione-granger-action-0.svg",
+    "viewBox": "433 147 390 455",
+    "anchor": [
+      628,
+      232
+    ],
+    "scale": 1.1,
+    "stance": "standing",
+    "ground": 304
+  },
+  {
+    "id": "hermione-granger",
+    "pose": "action-1",
+    "appearance": "masked",
+    "tool": "wand",
+    "path": "public/assets/characters/illustrated-study-rigs/hermione-granger-action-1.svg",
+    "viewBox": "433 147 390 455",
+    "anchor": [
+      628,
+      232
+    ],
+    "scale": 1.1,
+    "stance": "standing",
+    "ground": 304
+  },
+  {
+    "id": "wednesday-addams",
+    "pose": "idle",
+    "appearance": "masked",
+    "tool": "type",
+    "path": "public/assets/characters/illustrated-study-rigs/wednesday-addams-idle.svg",
+    "viewBox": "423 159 390 455",
+    "anchor": [
+      618,
+      244
+    ],
+    "scale": 1.1,
+    "stance": "seated",
+    "ground": 303
+  },
+  {
+    "id": "wednesday-addams",
+    "pose": "observe",
+    "appearance": "masked",
+    "tool": "type",
+    "path": "public/assets/characters/illustrated-study-rigs/wednesday-addams-observe.svg",
+    "viewBox": "423 159 390 455",
+    "anchor": [
+      618,
+      244
+    ],
+    "scale": 1.1,
+    "stance": "seated",
+    "ground": 303
+  },
+  {
+    "id": "wednesday-addams",
+    "pose": "action-0",
+    "appearance": "masked",
+    "tool": "type",
+    "path": "public/assets/characters/illustrated-study-rigs/wednesday-addams-action-0.svg",
+    "viewBox": "423 159 390 455",
+    "anchor": [
+      618,
+      244
+    ],
+    "scale": 1.1,
+    "stance": "seated",
+    "ground": 303
+  },
+  {
+    "id": "wednesday-addams",
+    "pose": "action-1",
+    "appearance": "masked",
+    "tool": "bow",
+    "path": "public/assets/characters/illustrated-study-rigs/wednesday-addams-action-1.svg",
+    "viewBox": "423 159 390 455",
+    "anchor": [
+      618,
+      244
+    ],
+    "scale": 1.1,
+    "stance": "seated",
+    "ground": 303
+  },
+  {
+    "id": "cozy-study-girl",
+    "pose": "idle",
+    "appearance": "masked",
+    "tool": "pencil",
+    "path": "public/assets/characters/illustrated-study-rigs/cozy-study-girl-idle.svg",
+    "viewBox": "388 161 390 455",
+    "anchor": [
+      583,
+      246
+    ],
+    "scale": 1.1,
+    "stance": "seated",
+    "ground": 302
+  },
+  {
+    "id": "cozy-study-girl",
+    "pose": "observe",
+    "appearance": "masked",
+    "tool": "pencil",
+    "path": "public/assets/characters/illustrated-study-rigs/cozy-study-girl-observe.svg",
+    "viewBox": "388 161 390 455",
+    "anchor": [
+      583,
+      246
+    ],
+    "scale": 1.1,
+    "stance": "seated",
+    "ground": 302
+  },
+  {
+    "id": "cozy-study-girl",
+    "pose": "action-0",
+    "appearance": "masked",
+    "tool": "pencil",
+    "path": "public/assets/characters/illustrated-study-rigs/cozy-study-girl-action-0.svg",
+    "viewBox": "388 161 390 455",
+    "anchor": [
+      583,
+      246
+    ],
+    "scale": 1.1,
+    "stance": "seated",
+    "ground": 302
+  },
+  {
+    "id": "cozy-study-girl",
+    "pose": "action-1",
+    "appearance": "masked",
+    "tool": "cup",
+    "path": "public/assets/characters/illustrated-study-rigs/cozy-study-girl-action-1.svg",
+    "viewBox": "388 161 390 455",
+    "anchor": [
+      583,
+      246
+    ],
+    "scale": 1.1,
+    "stance": "seated",
+    "ground": 302
+  },
+  {
+    "id": "late-night-study-boy",
+    "pose": "idle",
+    "appearance": "masked",
+    "tool": "type",
+    "path": "public/assets/characters/illustrated-study-rigs/late-night-study-boy-idle.svg",
+    "viewBox": "375 164 390 455",
+    "anchor": [
+      570,
+      249
+    ],
+    "scale": 1.08,
+    "stance": "seated",
+    "ground": 303
+  },
+  {
+    "id": "late-night-study-boy",
+    "pose": "observe",
+    "appearance": "masked",
+    "tool": "type",
+    "path": "public/assets/characters/illustrated-study-rigs/late-night-study-boy-observe.svg",
+    "viewBox": "375 164 390 455",
+    "anchor": [
+      570,
+      249
+    ],
+    "scale": 1.08,
+    "stance": "seated",
+    "ground": 303
+  },
+  {
+    "id": "late-night-study-boy",
+    "pose": "action-0",
+    "appearance": "masked",
+    "tool": "type",
+    "path": "public/assets/characters/illustrated-study-rigs/late-night-study-boy-action-0.svg",
+    "viewBox": "375 164 390 455",
+    "anchor": [
+      570,
+      249
+    ],
+    "scale": 1.08,
+    "stance": "seated",
+    "ground": 303
+  },
+  {
+    "id": "late-night-study-boy",
+    "pose": "action-1",
+    "appearance": "masked",
+    "tool": "headphones",
+    "path": "public/assets/characters/illustrated-study-rigs/late-night-study-boy-action-1.svg",
+    "viewBox": "375 164 390 455",
+    "anchor": [
+      570,
+      249
+    ],
+    "scale": 1.08,
+    "stance": "seated",
+    "ground": 303
+  },
+  {
+    "id": "purring-window-cat",
+    "pose": "idle",
+    "appearance": "masked",
+    "tool": "paw",
+    "path": "public/assets/characters/illustrated-study-rigs/purring-window-cat-idle.svg",
+    "viewBox": "330 302 400 240",
+    "anchor": [
+      530,
+      372
+    ],
+    "scale": 1.14,
+    "stance": "pet",
+    "ground": 88
+  },
+  {
+    "id": "purring-window-cat",
+    "pose": "observe",
+    "appearance": "masked",
+    "tool": "paw",
+    "path": "public/assets/characters/illustrated-study-rigs/purring-window-cat-observe.svg",
+    "viewBox": "330 302 400 240",
+    "anchor": [
+      530,
+      372
+    ],
+    "scale": 1.14,
+    "stance": "pet",
+    "ground": 88
+  },
+  {
+    "id": "purring-window-cat",
+    "pose": "action-0",
+    "appearance": "masked",
+    "tool": "paw",
+    "path": "public/assets/characters/illustrated-study-rigs/purring-window-cat-action-0.svg",
+    "viewBox": "330 302 400 240",
+    "anchor": [
+      530,
+      372
+    ],
+    "scale": 1.14,
+    "stance": "pet",
+    "ground": 88
+  },
+  {
+    "id": "purring-window-cat",
+    "pose": "action-1",
+    "appearance": "masked",
+    "tool": "leaf",
+    "path": "public/assets/characters/illustrated-study-rigs/purring-window-cat-action-1.svg",
+    "viewBox": "330 302 400 240",
+    "anchor": [
+      530,
+      372
+    ],
+    "scale": 1.14,
+    "stance": "pet",
+    "ground": 88
+  },
+  {
+    "id": "loyal-fireplace-dog",
+    "pose": "idle",
+    "appearance": "masked",
+    "tool": "paw",
+    "path": "public/assets/characters/illustrated-study-rigs/loyal-fireplace-dog-idle.svg",
+    "viewBox": "335 344 400 240",
+    "anchor": [
+      535,
+      414
+    ],
+    "scale": 1.14,
+    "stance": "pet",
+    "ground": 120
+  },
+  {
+    "id": "loyal-fireplace-dog",
+    "pose": "observe",
+    "appearance": "masked",
+    "tool": "paw",
+    "path": "public/assets/characters/illustrated-study-rigs/loyal-fireplace-dog-observe.svg",
+    "viewBox": "335 344 400 240",
+    "anchor": [
+      535,
+      414
+    ],
+    "scale": 1.14,
+    "stance": "pet",
+    "ground": 120
+  },
+  {
+    "id": "loyal-fireplace-dog",
+    "pose": "action-0",
+    "appearance": "masked",
+    "tool": "paw",
+    "path": "public/assets/characters/illustrated-study-rigs/loyal-fireplace-dog-action-0.svg",
+    "viewBox": "335 344 400 240",
+    "anchor": [
+      535,
+      414
+    ],
+    "scale": 1.14,
+    "stance": "pet",
+    "ground": 120
+  },
+  {
+    "id": "loyal-fireplace-dog",
+    "pose": "action-1",
+    "appearance": "masked",
+    "tool": "ear",
+    "path": "public/assets/characters/illustrated-study-rigs/loyal-fireplace-dog-action-1.svg",
+    "viewBox": "335 344 400 240",
+    "anchor": [
+      535,
+      414
+    ],
+    "scale": 1.14,
+    "stance": "pet",
+    "ground": 120
+  }
+]

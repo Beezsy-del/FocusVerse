@@ -5,7 +5,7 @@ export const SPIDERMAN_ROOT = `${import.meta.env.BASE_URL}assets/characters/spid
 export const spidermanManifest = manifest;
 export type SpiderManAnimation = keyof typeof manifest.animations;
 export const isSpiderManCostume = (appearance: CustomAppearanceState) =>
-  appearance.outfit === 'arachnid-suit' && appearance.accessory === 'hero-mask';
+  !appearance.signatureCharacter && appearance.outfit === 'arachnid-suit' && appearance.accessory === 'hero-mask';
 
 let previewPromise: Promise<ImageData> | undefined;
 export function loadSpiderManPreview(): Promise<ImageData> {

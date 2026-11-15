@@ -117,8 +117,21 @@ export const SpiderManCustomizationMenu: React.FC<SpiderManCustomizationMenuProp
       const saved = localStorage.getItem('focusverse_custom_appearance');
       const savedCharacter = localStorage.getItem('focusverse_appearance_owner') || localStorage.getItem('focusverse_selected_char');
       if (!saved || savedCharacter !== initialCharacter.id) handleSelectCharacter(initialCharacter, false);
+      else {
+        // Upgrade old untouched presets, while retaining saved custom loadouts.
+        const preset = getAppearanceForCharacter(initialCharacter, playerName);
+        setAppearance(previous => {
+          const keys = ['gender', 'outfit', 'hairStyle', 'hairColor', 'skinTone', 'accessory'] as const;
+          const unchanged = keys.every(key => previous[key] === preset[key]);
+          return preset.signatureCharacter && (initialCharacter.genderOrSpirit === 'neutral' || (previous.signatureCharacter === undefined && unchanged))
+            ? { ...previous, signatureCharacter: preset.signatureCharacter }
+            : previous;
+        });
+      }
     }
   }, [initialCharacter]);
+
+  const isPet = selectedCharacter.genderOrSpirit === 'neutral';
 
   // Find current suit metadata
   const currentSuit: SuitMetadata =
@@ -143,31 +156,32 @@ export const SpiderManCustomizationMenu: React.FC<SpiderManCustomizationMenuProp
   // Option handlers
   const handleSelectOutfit = (outfitId: OutfitId) => {
     audioEngine.playClick();
-    setAppearance((prev) => ({ ...prev, outfit: outfitId }));
+    setAppearance((prev) => ({ ...prev, signatureCharacter: null, outfit: outfitId }));
   };
 
   const handleSelectHairStyle = (hairId: HairStyleId) => {
     audioEngine.playClick();
-    setAppearance((prev) => ({ ...prev, hairStyle: hairId }));
+    setAppearance((prev) => ({ ...prev, signatureCharacter: null, hairStyle: hairId }));
   };
 
   const handleSelectHairColor = (colorId: HairColorId) => {
     audioEngine.playClick();
-    setAppearance((prev) => ({ ...prev, hairColor: colorId }));
+    setAppearance((prev) => ({ ...prev, signatureCharacter: null, hairColor: colorId }));
   };
 
   const handleSelectSkinTone = (skinId: SkinToneId) => {
     audioEngine.playClick();
-    setAppearance((prev) => ({ ...prev, skinTone: skinId }));
+    setAppearance((prev) => ({ ...prev, signatureCharacter: null, skinTone: skinId }));
   };
 
   const handleSelectAccessory = (accId: AccessoryId) => {
     audioEngine.playClick();
-    setAppearance((prev) => ({ ...prev, accessory: accId }));
+    setAppearance((prev) => ({ ...prev, signatureCharacter: null, accessory: accId }));
   };
 
   // Randomize Appearance (Generates cohesive loadout with chiptune sound)
   const handleRandomize = () => {
+    if (isPet) return;
     audioEngine.playClick();
     audioEngine.playVictoryJingle([329.63, 440.0, 554.37, 659.25]);
 
@@ -185,6 +199,7 @@ export const SpiderManCustomizationMenu: React.FC<SpiderManCustomizationMenuProp
 
     setAppearance((prev) => ({
       ...prev,
+      signatureCharacter: null,
       outfit: randomOutfit,
       hairStyle: randomHair,
       hairColor: randomColor,
@@ -321,6 +336,7 @@ export const SpiderManCustomizationMenu: React.FC<SpiderManCustomizationMenuProp
           </div>
 
           <button
+            disabled={isPet}
             onClick={handleRandomize}
             className="pixel-btn px-2.5 py-1 text-xs text-arcade-gold hover:text-white flex items-center gap-1"
             title="Randomize loadout"
@@ -421,6 +437,12 @@ export const SpiderManCustomizationMenu: React.FC<SpiderManCustomizationMenuProp
             </div>
           </div>
 
+          {isPet ? <div className="p-5 text-sm text-gray-300 space-y-3">
+            <p>Your companion keeps its natural coat and animal silhouette.</p>
+            <label className="block">Callsign
+              <input aria-label="Pet callsign" maxLength={16} value={playerName} onChange={e => setPlayerName(e.target.value)} className="block mt-2 p-2 bg-[#090714] border border-arcade-gold text-arcade-gold" />
+            </label>
+          </div> : <>
           {/* 2. SPIDER-MAN STYLE CATEGORY NAVIGATION TABS */}
           <div className="flex border-b border-[#241E3E] bg-[#0A0816] text-[10px] font-mono select-none overflow-x-auto no-scrollbar">
             <button
@@ -807,6 +829,8 @@ export const SpiderManCustomizationMenu: React.FC<SpiderManCustomizationMenuProp
             )}
           </div>
 
+          </>}
+
           {/* 4. BOTTOM ACTION CONTROLS: RESET, RANDOMIZE & CONFIRM */}
           <div className="p-3 border-t-2 border-[#241E3E] bg-[#0A0816] flex flex-col gap-2">
             <div className="flex items-center gap-2">
@@ -820,6 +844,7 @@ export const SpiderManCustomizationMenu: React.FC<SpiderManCustomizationMenuProp
               </button>
 
               <button
+                disabled={isPet}
                 onClick={handleRandomize}
                 className="pixel-btn px-2.5 py-1.5 text-xs text-arcade-cyan hover:text-white flex-1 flex items-center justify-center gap-1"
                 title="Randomize loadout"
@@ -883,6 +908,9 @@ export const SpiderManCustomizationMenu: React.FC<SpiderManCustomizationMenuProp
               </div>
             )}
 
+            {!isPet && <div className="text-[10px] font-mono text-gray-400 mb-2">
+              {appearance.signatureCharacter ? 'SIGNATURE LOOK · Customizing creates your own avatar' : 'CUSTOM LOADOUT · Reset restores the companion preset'}
+            </div>}
             {/* The Large, Complete, Full-Body 2D Pixel Sprite */}
             <div className="relative transform hover:scale-105 transition-transform duration-300">
               <FullBodyPixelSprite

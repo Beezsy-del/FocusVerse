@@ -4,3 +4,14 @@
 .stark-companion { left:51.5%; top:40.5%; width:7.5%; height:23%; }
 .stark-workshop .room-object { min-width:24px; min-height:24px; }
 .stark-workshop .room-object:focus-visible { outline:2px solid #5CE1E6; outline-offset:3px; }
+/* Armor stays grounded; only helmet and articulated upper assembly settle. */
+.refined-stark .stark-upper { transform-origin:24px 65px; animation:stark-settle 9s ease-in-out infinite; }
+.refined-stark .stark-helmet { transform-origin:24px 29px; animation:stark-review 24s ease-in-out infinite; }
+.stark-reactor [data-stark-hand="near"] { transform-origin:34px 34px; animation:stark-calibrate 17s ease-in-out infinite; }
+.stark-diagnostics [data-stark-hand="near"] { transform-origin:34px 34px; animation:stark-probe 21s ease-in-out infinite; }
+@keyframes stark-settle {0%,100%{translate:0 0}50%{translate:0 -.15px}}
+@keyframes stark-review {0%,55%,100%{rotate:0deg}65%,80%{rotate:-2deg}}
+@keyframes stark-calibrate {0%,12%,20%,100%{rotate:0deg}14%,18%{rotate:.7deg}}
+@keyframes stark-probe {0%,55%,100%{rotate:0deg}65%,75%{rotate:-1deg}}
+.room-hidden .refined-stark * {animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){.refined-stark * {animation:none!important}}

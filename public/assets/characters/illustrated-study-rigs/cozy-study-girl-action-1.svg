@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="388 161 390 455" width="780" height="910"><style>.illustrated-head {transform-origin:0px 50px;animation:figure-breath 8s ease-in-out infinite}
+.illustrated-eyes {animation:figure-blink 13s linear infinite}
+.illustrated-miles-morales.illustrated-action .arm-near {animation:miles-spray-stroke 5.2s ease-in-out infinite}
+.illustrated-miles-morales.illustrated-action.illustrated-tool-spark .arm-near {animation:miles-venom-inspect 6s ease-in-out infinite}
+.illustrated-gwen-stacy.illustrated-action .arm-far {animation:gwen-left-beat 2.6s ease-in-out infinite}
+.illustrated-gwen-stacy.illustrated-action .arm-near {animation:gwen-right-beat 2.6s ease-in-out infinite}
+.illustrated-gwen-stacy.illustrated-action.illustrated-tool-cymbal .arm-near {animation:gwen-cymbal-beat 4.4s ease-in-out infinite}
+.illustrated-l-lawliet.illustrated-action .arm-near {animation:l-case-mark 5s ease-in-out infinite}
+.illustrated-l-lawliet.illustrated-action.illustrated-tool-sugar .arm-near {animation:l-sugar-consider 7s ease-in-out infinite}
+@keyframes figure-breath{0%,100%{translate:0 0}50%{translate:0 -.45px}}
+@keyframes figure-blink{0%,42%,45%,100%{scale:1 1}43.5%{scale:1 .12}}
+@keyframes miles-spray-stroke{0%,25%,100%{rotate:0deg}45%,65%{rotate:-4deg}}
+@keyframes miles-venom-inspect{0%,25%,100%{rotate:0deg}50%,70%{rotate:2deg}}
+@keyframes gwen-left-beat{0%,23%,43%,100%{rotate:0deg}28%,48%{rotate:3deg}32%,52%{rotate:-1deg}}
+@keyframes gwen-right-beat{0%,10%,32%,100%{rotate:0deg}15%,37%{rotate:-3deg}19%,41%{rotate:1deg}}
+@keyframes gwen-cymbal-beat{0%,40%,100%{rotate:0deg}50%{rotate:3deg}56%{rotate:-1deg}}
+@keyframes l-case-mark{0%,20%,36%,52%,100%{rotate:0deg}28%,44%{rotate:.9deg}}
+@keyframes l-sugar-consider{0%,30%,100%{rotate:0deg}50%,70%{rotate:-1.5deg}}
+.sanctuary-paused .illustrated-actor *, .room-hidden .illustrated-actor *{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){.illustrated-actor *{animation:none!important;transition:none!important}}
+.illustrated-cloth{transform-origin:0px 65px;animation:figure-cloth 17s ease-in-out infinite}
+.illustrated-gojo-satoru .illustrated-head{animation:gojo-calm 11s ease-in-out infinite}
+.illustrated-gojo-satoru.illustrated-action .arm-near{animation:gojo-palm 6s ease-in-out infinite}
+.illustrated-gojo-satoru.illustrated-action.illustrated-tool-blindfold .arm-near{animation:gojo-fold 5s ease-in-out infinite}
+.illustrated-levi-ackerman.illustrated-action .arm-near{animation:levi-clean 4.2s ease-in-out infinite}
+.illustrated-levi-ackerman.illustrated-action.illustrated-tool-cup .arm-near{animation:levi-tea 6s ease-in-out infinite}
+.illustrated-officer-k.illustrated-action .arm-near{animation:k-evidence-turn 7s ease-in-out infinite}
+.illustrated-neo.illustrated-action .arm-near{animation:neo-input 4.9s ease-in-out infinite}
+.illustrated-neo.illustrated-action.illustrated-tool-spoon .tool-spoon{transform-origin:0px 14px;animation:neo-bend 6s ease-in-out infinite}
+@keyframes figure-cloth{0%,100%{skew:0deg}50%{skew:.25deg}}
+@keyframes gojo-calm{0%,100%{translate:0 0}50%{translate:0 -.6px}}
+@keyframes gojo-palm{0%,100%{rotate:0deg}50%{rotate:-2deg}}
+@keyframes gojo-fold{0%,25%,100%{rotate:0deg}45%,65%{rotate:1.6deg}}
+@keyframes levi-clean{0%,20%,60%,100%{rotate:0deg}40%,80%{rotate:2deg}}
+@keyframes levi-tea{0%,25%,100%{rotate:0deg}45%,65%{rotate:-2deg}}
+@keyframes k-evidence-turn{0%,25%,100%{rotate:0deg}50%,70%{rotate:2deg}}
+@keyframes neo-input{0%,20%,30%,40%,100%{rotate:0deg}25%,35%{rotate:1deg}}
+@keyframes neo-bend{0%,20%,100%{rotate:0deg}50%,70%{rotate:-12deg}}
+
+.illustrated-breath{transform-origin:0px 155px;animation:figure-torso-breath var(--figure-breath,8s) ease-in-out infinite}
+@keyframes figure-torso-breath{0%,100%{scale:1 1}50%{scale:1 1.003}}
+.illustrated-braid{transform-origin:19px 30px;animation:elsa-braid-settle 12s ease-in-out infinite}
+.illustrated-elsa.illustrated-action .arm-near{animation:elsa-crystal 5.8s ease-in-out infinite}
+.illustrated-elsa.illustrated-action.illustrated-tool-ribbon .arm-near{animation:elsa-ribbon-trace 6.7s ease-in-out infinite}
+.illustrated-rapunzel.illustrated-action .arm-near{animation:rapunzel-paint 4.8s ease-in-out infinite}
+.illustrated-rapunzel.illustrated-action.illustrated-tool-lantern .arm-near{animation:rapunzel-lantern-lift 6s ease-in-out infinite}
+.illustrated-moana.illustrated-action .arm-near{animation:moana-sight 7s ease-in-out infinite}
+.illustrated-moana.illustrated-action.illustrated-tool-paddle .arm-near{animation:moana-grip 6.5s ease-in-out infinite}
+.illustrated-hermione-granger.illustrated-action .arm-near{animation:hermione-annotate 4.6s ease-in-out infinite}
+.illustrated-hermione-granger.illustrated-action.illustrated-tool-wand .arm-near{animation:hermione-lift 5.4s ease-in-out infinite}
+@keyframes elsa-braid-settle{0%,100%{rotate:0deg}50%{rotate:.6deg}}
+@keyframes elsa-crystal{0%,100%{rotate:0deg}50%{rotate:-2deg}}
+@keyframes elsa-ribbon-trace{0%,25%,100%{rotate:0deg}50%,70%{rotate:3deg}}
+@keyframes rapunzel-paint{0%,20%,50%,100%{rotate:0deg}35%,65%{rotate:1.5deg}}
+@keyframes rapunzel-lantern-lift{0%,25%,100%{rotate:0deg}50%,70%{rotate:-2deg}}
+@keyframes moana-sight{0%,30%,100%{rotate:0deg}55%,75%{rotate:1.5deg}}
+@keyframes moana-grip{0%,30%,100%{rotate:0deg}55%,75%{rotate:-1.7deg}}
+@keyframes hermione-annotate{0%,10%,30%,50%,100%{rotate:0deg}20%,40%{rotate:.8deg}}
+@keyframes hermione-lift{0%,20%,100%{rotate:0deg}40%,70%{rotate:-3deg}}
+.illustrated-wednesday-addams .illustrated-eyes{animation-duration:19s}
+.illustrated-wednesday-addams.illustrated-action .arm-near{animation:wednesday-type 5.3s ease-in-out infinite}
+.illustrated-wednesday-addams.illustrated-action.illustrated-tool-bow .arm-near{animation:wednesday-bow 6.2s ease-in-out infinite}
+.illustrated-cozy-study-girl.illustrated-action .arm-near{animation:cozy-journal 5.6s ease-in-out infinite}
+.illustrated-cozy-study-girl.illustrated-action.illustrated-tool-cup .arm-near{animation:cozy-tea 7s ease-in-out infinite}
+.illustrated-late-night-study-boy.illustrated-action .arm-near{animation:night-debug 4.3s ease-in-out infinite}
+.illustrated-late-night-study-boy.illustrated-action.illustrated-tool-headphones .arm-near{animation:night-earcup 5.9s ease-in-out infinite}
+@keyframes wednesday-type{0%,15%,35%,55%,100%{rotate:0deg}25%,45%{rotate:.8deg}}
+@keyframes wednesday-bow{0%,100%{rotate:0deg}50%{rotate:4deg}}
+@keyframes cozy-journal{0%,20%,40%,100%{rotate:0deg}30%,50%{rotate:1deg}}
+@keyframes cozy-tea{0%,25%,100%{rotate:0deg}50%,70%{rotate:-1.4deg}}
+@keyframes night-debug{0%,10%,25%,40%,100%{rotate:0deg}17%,32%{rotate:.8deg}}
+@keyframes night-earcup{0%,20%,100%{rotate:0deg}35%,55%{rotate:1.7deg}}
+.pet-ribcage{transform-origin:0px 90px;animation:illustrated-animal-breath 6.5s ease-in-out infinite}
+.illustrated-purring-window-cat .pet-ribcage{animation-duration:5.8s}
+.cat-tail-tip{transform-origin:66px 61px;animation:illustrated-cat-tip 16s ease-in-out infinite}
+.cat-slow-blink{animation:illustrated-cat-blink 12s ease-in-out infinite}
+.cat-groom-paw{animation:illustrated-cat-groom 4.8s ease-in-out infinite}
+.cat-leaf-watch{animation:illustrated-cat-leaf 6s ease-in-out infinite}
+.dog-tail-tip{transform-origin:52px 99px;animation:illustrated-dog-tail 19s ease-in-out infinite}
+.dog-soft-blink{animation:illustrated-dog-blink 14s linear infinite}
+.illustrated-observe .dog-ear-right,.illustrated-action.illustrated-tool-ear .dog-ear-right{transform-origin:0px -12px;animation:illustrated-dog-listen-ear 5s ease-in-out infinite}
+.dog-offer-paw{animation:illustrated-dog-offer 6s ease-in-out infinite}
+@keyframes illustrated-animal-breath{0%,100%{scale:1 1}50%{scale:1 1.008}}
+@keyframes illustrated-cat-tip{0%,60%,100%{rotate:0deg}70%,80%{rotate:-4deg}}
+@keyframes illustrated-cat-blink{0%,35%,48%,100%{scale:1 1}40%,44%{scale:1 .15}}
+@keyframes illustrated-cat-groom{0%,20%,45%,100%{rotate:0deg}30%,55%{rotate:3deg}}
+@keyframes illustrated-cat-leaf{0%,100%{translate:0 0;rotate:0deg}50%{translate:-8px 9px;rotate:8deg}}
+@keyframes illustrated-dog-tail{0%,20%,100%{rotate:0deg}10%,14%,18%{rotate:-5deg}12%,16%{rotate:3deg}}
+@keyframes illustrated-dog-blink{0%,43%,46%,100%{scale:1 1}44.5%{scale:1 .15}}
+@keyframes illustrated-dog-listen-ear{0%,25%,100%{rotate:0deg}45%,65%{rotate:-7deg}}
+@keyframes illustrated-dog-offer{0%,25%,100%{rotate:0deg}50%,70%{rotate:2deg}}
+.illustrated-tony-stark.illustrated-action.illustrated-tool-reactor .arm-near{animation:tony-calibration 4.8s ease-in-out infinite}
+.illustrated-tony-stark.illustrated-action.illustrated-tool-diagnostics .arm-near{animation:tony-diagnostic-read 5s ease-in-out infinite}
+@keyframes tony-calibration{0%,20%,100%{rotate:0deg}35%,55%{rotate:1.1deg}45%,65%{rotate:-.5deg}}
+@keyframes tony-diagnostic-read{0%,25%,100%{rotate:0deg}45%,70%{rotate:-1.4deg}}
+
+*{animation:none!important}</style><g class="illustrated-actor illustrated-cozy-study-girl illustrated-action illustrated-tool-cup" data-actor="cozy-study-girl" data-rig-layer="body" data-art-version="3" data-phase="action" transform="translate(583 246) scale(1.1)" stroke="#243041" stroke-width="1.15" stroke-linejoin="round" stroke-linecap="round" pointer-events="none" style="--figure-breath:6.8s"><defs><linearGradient id="figure-suit-cozy-study-girl" x1="0" x2="1" y2=".6"><stop stop-color="#bb7a69"></stop><stop offset=".45" stop-color="#bb7a69"></stop><stop offset="1" stop-color="#41343c"></stop></linearGradient></defs><ellipse cy="302" cx="2" rx="65" ry="5" fill="#102034" opacity=".2" stroke="none"></ellipse><g><path class="illustrated-cloth" d="M-24 3Q-42 22-35 52Q-46 72-33 96Q-43 116-25 135L0 127L24 140Q44 117 34 93Q44 65 33 44L24 1Z" fill="#6d4a40"></path><path d="M-28 27Q-36 54-26 77L-30 111M27 25Q38 58 28 78L31 117" stroke="#b28a6b" stroke-width="1.2" fill="none"></path><path d="M-23 155Q-53 159-63 186Q-71 208-47 221L7 232L24 218L3 205L-29 192L-9 186L23 194L34 224L19 278L37 282L57 224Q53 187 26 159Z" fill="#435467"></path><path d="M-47 181Q-58 195-33 207L4 217M32 199L43 224L29 268M-13 180L3 183" stroke="#8296a1" stroke-width="1.4" fill="none"></path><path d="M6 214L23 210L31 219Q28 228 13 232L0 227Z" fill="#c8bba4"></path><path d="M21 274L38 275L36 289L49 298Q45 304 19 302L16 295Z" fill="#89969b"></path><path d="M20 298H43M25 282L35 284" stroke="#d4d6c9" fill="none"></path><g class="illustrated-breath"><path d="M-12 53L-29 66Q-41 78-32 102L-23 128L-29 159Q0 180 29 160L22 125L33 98Q41 75 25 64L12 51Z" fill="#bd8470"></path><path d="M-29 81Q-34 102-22 122L-19 151L-25 159L-10 167L-7 124L-15 94Z" fill="#9e685e" stroke="none"></path><path d="M-18 57Q-1 78 19 55M-21 63Q0 86 22 62" stroke="#e2b29a" stroke-width="2.1" fill="none"></path><path d="M-19 91l-3 9l6 9l-6 9l6 9l-6 9l3 9" stroke="#dca78e" stroke-width="1" fill="none"></path><path d="M-7 91l-3 9l6 9l-6 9l6 9l-6 9l3 9" stroke="#dca78e" stroke-width="1" fill="none"></path><path d="M7 91l-3 9l6 9l-6 9l6 9l-6 9l3 9" stroke="#dca78e" stroke-width="1" fill="none"></path><path d="M19 91l-3 9l6 9l-6 9l6 9l-6 9l3 9" stroke="#dca78e" stroke-width="1" fill="none"></path><path d="M-25 153Q0 168 25 153M-25 158Q0 174 25 158" stroke="#956157" stroke-width="1.3" fill="none"></path></g></g><g transform="translate(-4 8) rotate(-7 0 50)"><g class="illustrated-head"><g><g stroke="#34313a" stroke-width="1"><path d="M-10 37L-13 62Q0 69 13 60L10 37" fill="#d9a380"></path><path d="M-9 43Q0 52 10 43L9 54Q0 59-11 53Z" fill="#91685c" opacity=".35" stroke="none"></path><path d="M-21 17Q-29 13-26 24L-20 29M21 16Q28 12 26 23L20 28" fill="#d9a380"></path><path d="M-22 8Q-18-8 1-8Q22-6 24 11L21 29Q13 44 0 47Q-15 42-22 28L-24 18Z" fill="#d9a380"></path><path d="M15 0Q24 14 16 30L6 42L-2 47L11 43L22 29L24 12Z" fill="#976b61" opacity=".3" stroke="none"></path><path d="M-18 12L-17 21M-16 30L-11 34" stroke="#f2dac2" opacity=".55" fill="none" stroke-width="1.1"></path><g class="illustrated-eyes" style="transform-origin:0px 24px"><defs><clipPath id="portrait-eyes-cozy-study-girl"><path d="M-18 24Q-12 18-5 24Q-11 30-18 26ZM4 23Q12 17 18 22Q13 29 6 26Z"></path></clipPath></defs><path d="M-18 24Q-12 18-5 24Q-11 30-18 26ZM4 23Q12 17 18 22Q13 29 6 26Z" fill="#eee9df" stroke-width=".7"></path><g clip-path="url(#portrait-eyes-cozy-study-girl)"><ellipse cx="-11" cy="23" rx="3.2" ry="3.3" fill="#7a5c49" stroke="none"></ellipse><ellipse cx="11" cy="22" rx="3.2" ry="3.3" fill="#7a5c49" stroke="none"></ellipse><circle cx="-11" cy="23" r="1.6" fill="#273340" stroke="none"></circle><circle cx="11" cy="22" r="1.6" fill="#273340" stroke="none"></circle><circle cx="-12" cy="22" r=".65" fill="#fff9ec" stroke="none"></circle><circle cx="10" cy="21" r=".65" fill="#fff9ec" stroke="none"></circle></g></g><path d="M-18 17Q-12 14-5 17M5 16Q12 13 18 15" stroke="#654239" stroke-width="1.6" fill="none"></path><path d="M0 25Q0 29-2 31Q0 33 3 31" stroke="#9c7464" stroke-width=".7" fill="none"></path><path d="M-6 38Q1 42 8 37" stroke="#805d58" stroke-width=".8" fill="none"></path><path d="M-24 29Q-35 8-24-11Q-12-25 7-20Q29-19 29 4L25 31L19 26L17 8L8 13L0 3L-18 18L-19 29Z" fill="#654239"></path><path d="M-25 4Q-24-11-11-13M-18 8Q-9-4 1-10M16-10Q25-1 23 11" fill="none" stroke="#a79b8d" opacity="0.35" stroke-width="1"></path></g></g></g></g></g><g class="illustrated-actor illustrated-cozy-study-girl illustrated-action illustrated-tool-cup" data-rig-layer="hands" data-art-version="3" data-phase="action" transform="translate(583 246) scale(1.1)" stroke="#243041" stroke-width="1.15" stroke-linejoin="round" stroke-linecap="round" pointer-events="none" style="--figure-breath:6.8s"><g data-joint="far" class="illustrated-arm arm-far" style="transform-origin:-27px 70px"><g transform="translate(-27,70) rotate(16.220193695602802)"><path d="M-7 1Q-11 11 -8 23Q-5 45.28001396647874 -4 57.28001396647874Q0 62.28001396647874 4 57.28001396647874Q7 40.28001396647874 9 22Q11 6 7 1Q0-5-7 1Z" fill="#bd8470"></path><path d="M5 8Q8 20 3 56.28001396647874L0 54.28001396647874Q4 20 2 10Z" fill="#142537" opacity=".24" stroke="none"></path><path d="M-5 7Q-7 20 -3 50.28001396647874" stroke="#bed0d4" opacity=".4" fill="none"></path></g><g transform="translate(-43,125) rotate(-114.30454926593671)"><path d="M-4-3Q-8 5 -7 17Q-6 22.014702703389894-5 34.014702703389894H5Q5 20.014702703389894 6 17Q9 4 4-3Q0 1-4-3Z" fill="#bd8470"></path><path d="M4 7Q6 17 3 31.014702703389894" stroke="#142738" opacity=".3" stroke-width="2" fill="none"></path><path d="M-3 5L-3 26.014702703389894" stroke="#c5d7d7" opacity=".35" fill="none"></path><path d="M-6 25.014702703389894L5 27.014702703389894M-5 29.014702703389894H5M-5 9L2 14" stroke="#8298a6" fill="none"></path><g transform="translate(0 34.014702703389894) rotate(114.30454926593671)"><path d="M-5-3Q-9-4-10 0L-8 5L-4 8L3 8Q7 6 7 3L6-2L3-3L0-1L-1-5Q-4-7-5-3Z" fill="#d9a380"></path><path d="M-6 1L3 2M-5 4L3 5M0-1L-1 3" stroke="#96715f" stroke-width=".7" fill="none"></path></g></g></g><g data-joint="near" class="illustrated-arm arm-near" style="transform-origin:26px 65px"><g transform="translate(26,65) rotate(-19.384515679357833)"><path d="M-7 1Q-11 11 -8 23Q-5 45.24508712544685 -4 57.24508712544685Q0 62.24508712544685 4 57.24508712544685Q7 40.24508712544685 9 22Q11 6 7 1Q0-5-7 1Z" fill="#bd8470"></path><path d="M5 8Q8 20 3 56.24508712544685L0 54.24508712544685Q4 20 2 10Z" fill="#142537" opacity=".24" stroke="none"></path><path d="M-5 7Q-7 20 -3 50.24508712544685" stroke="#bed0d4" opacity=".4" fill="none"></path></g><g transform="translate(45,119) rotate(-256.90810693565317)"><path d="M-4-3Q-8 5 -7 17Q-6 32.14748010928823-5 44.14748010928823H5Q5 30.14748010928823 6 17Q9 4 4-3Q0 1-4-3Z" fill="#bd8470"></path><path d="M4 7Q6 17 3 41.14748010928823" stroke="#142738" opacity=".3" stroke-width="2" fill="none"></path><path d="M-3 5L-3 36.14748010928823" stroke="#c5d7d7" opacity=".35" fill="none"></path><path d="M-6 35.14748010928823L5 37.14748010928823M-5 39.14748010928823H5M-5 9L2 14" stroke="#8298a6" fill="none"></path><g transform="translate(0 44.14748010928823) rotate(256.90810693565317)"><path d="M-5-3Q-9-4-10 0L-8 5L-4 8L3 8Q7 6 7 3L6-2L3-3L0-1L-1-5Q-4-7-5-3Z" fill="#d9a380"></path><path d="M-6 1L3 2M-5 4L3 5M0-1L-1 3" stroke="#96715f" stroke-width=".7" fill="none"></path><g class="illustrated-tool tool-cup"><g><g fill="#e4d4b6" stroke="#192331" stroke-width="2"><path d="M-12-12H10V7Q0 18-12 7Z"></path><path d="M10-8Q26-10 21 3L10 6" fill="none"></path><path d="M-5-17Q-12-25-5-34" stroke="#d7d9cc" fill="none"></path></g></g></g></g></g></g></g></svg>

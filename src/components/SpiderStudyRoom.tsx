@@ -24,16 +24,20 @@ export function SpiderStudyRoom({ action, completion, onMusic, onNotes, onTasks 
   const [celebrating, setCelebrating] = useState(false);
   const [lamp, setLamp] = useState(true);
   const [hidden, setHidden] = useState(document.hidden);
+  const [reduced, setReduced] = useState(()=>matchMedia('(prefers-reduced-motion: reduce)').matches);
   useEffect(() => {
     const update = () => setHidden(document.hidden);
+    const media=matchMedia('(prefers-reduced-motion: reduce)');
+    const motion=()=>setReduced(media.matches);
+    media.addEventListener('change',motion);
     document.addEventListener('visibilitychange', update);
-    return () => document.removeEventListener('visibilitychange', update);
+    return () => {document.removeEventListener('visibilitychange', update);media.removeEventListener('change',motion);};
   }, []);
   useEffect(() => {
-    if (action === 'BREAK' || action === 'COMPLETED' || hidden || manualPose) return;
+    if (action === 'BREAK' || action === 'COMPLETED' || hidden || reduced || manualPose) return;
     const id = window.setInterval(() => setActivity(a => (a + 1) % workingPoses.length), 28000);
     return () => clearInterval(id);
-  }, [action, hidden, manualPose]);
+  }, [action, hidden, reduced, manualPose]);
   useEffect(() => {
     const sessionEnded = action === 'COMPLETED';
     if (completion !== lastCompletion.current || (sessionEnded && !wasCompleted.current)) {
@@ -55,7 +59,7 @@ export function SpiderStudyRoom({ action, completion, onMusic, onNotes, onTasks 
     </header>
     <div className="queens-stage">
       <div className="room-scene-label"><span className="room-scene-dot"/> PETER’S WORKBENCH <span> / </span> {pose === 'complete' ? 'NICE WORK!' : pose === 'idle' ? 'TAKING A BREATHER' : pose.toUpperCase()}</div>
-      <svg viewBox="0 0 1000 660" aria-label="A warm attic study, a nighttime skyline, and pixel-art Spider-Man repairing web shooters and designing a suit at his workbench" role="img">
+      <svg viewBox="0 0 1000 660" aria-label="A warm attic study, a nighttime skyline, and illustrated Spider-Man repairing web shooters and designing a suit at his workbench" role="img">
         <defs>
           <linearGradient id="qr-wall" x2="1" y2="1"><stop stopColor="#192137"/><stop offset=".55" stopColor="#3b2b34"/><stop offset="1" stopColor="#684032"/></linearGradient>
           <linearGradient id="qr-sky" x2="0" y2="1"><stop stopColor="#142840"/><stop offset="1" stopColor="#75505b"/></linearGradient>

@@ -170,7 +170,7 @@ export const SelectPage: React.FC<SelectPageProps> = ({
 
   // Auto-switch to first matching companion if current selection is excluded by filter
   useEffect(() => {
-    if (filteredCharacters.length > 0 && !filteredCharacters.some((c) => c.id === selectedCharacter.id)) {
+    if (displayMode === 'voxel' && filteredCharacters.length > 0 && !filteredCharacters.some((c) => c.id === selectedCharacter.id)) {
       handleSelectCompanion(filteredCharacters[0]);
     }
   }, [spiritToggle, selectedCategory, chosenGender]);

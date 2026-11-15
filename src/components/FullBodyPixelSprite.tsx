@@ -45,6 +45,7 @@ export const FullBodyPixelSprite: React.FC<FullBodyPixelSpriteProps> = ({
     }
     return () => { cancelled = true; };
   }, [
+    appearance.signatureCharacter,
     appearance.gender,
     appearance.outfit,
     appearance.hairStyle,

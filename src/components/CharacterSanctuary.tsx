@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import {ILLUSTRATED_RIGS,ILLUSTRATED_PLACEMENTS} from '../data/illustratedActorRigs';
+import {useCompanionPerformance} from '../hooks/useCompanionPerformance';
+import { ROSTER_RIGS } from '../data/rosterActorRigs';
+import { REFERENCE_ACTOR_RIGS } from '../data/referenceActorRigs';
 import { Character } from '../types/character';
 import { SANCTUARIES } from '../data/sanctuaries';
+import { Batcomputer, BatDesk, BatEquipment } from './BatcaveWorkstation';
 import { SanctuaryActor } from './SanctuaryActor';
 import { UserFocusAction } from './AudioCodeFooter';
 import { Headphones, NotebookPen, ListTodo, Radio, RotateCw, Sparkles } from 'lucide-react';
@@ -10,9 +15,14 @@ import { SanctuaryRoomObjects, roomObjectLayout } from './SanctuaryRoomObjects';
 
 function WorkSurface({id,tool,color}:{id:string;tool:string;color:string}) {
  if(id.endsWith('-cat')||id.endsWith('-dog')) return null;
+ if(id==='hermione-granger')return <g stroke="#493b3a" strokeWidth="3"><path d="M442 445L570 432L592 473L453 491Z" fill="#9b7754"/><path d="M472 488L480 574H541L553 482Z" fill="#5c4b45"/><path d="M451 444L514 449L570 438L579 469L518 480L461 474Z" fill="#dcc59f"/><path d="M514 450L518 477M467 454L503 461M532 458L565 451" stroke="#9d8664" strokeWidth="1.5"/></g>;
+ if(id==='rapunzel')return <g stroke="#604b40" strokeWidth="3"><path d="M354 441H552L576 480H332Z" fill="#b18b61"/><path d="M347 480L335 573M559 480L573 573" stroke="#786047" strokeWidth="9"/><path d="M454 442L505 449L550 442V471L505 479L454 471Z" fill="#e5cfab"/><path d="M505 450V476" stroke="#a58b6c" strokeWidth="1.5"/><circle cx="524" cy="461" r="8" fill="#d6aa53"/><path d="M377 449V427H393V450" fill="#a57379"/></g>;
+ if(id==='officer-k')return <g stroke="#36464e" strokeWidth="3"><path d="M306 437L474 422L497 466L313 481Z" fill="#667778"/><path d="M322 480L312 559M481 469L496 558" stroke="#39464d" strokeWidth="9"/><path d="M329 438L447 430L460 455L338 464Z" fill="#243e48"/><path d="M345 444L436 438M350 452L440 446" stroke="#9bbab2" strokeWidth="2"/></g>;
+ if(id==='miles-morales')return <g stroke="#263248" strokeWidth="2"><path d="M365 326L479 335L469 469L356 456Z" fill="#34394f"/><path d="M370 335L470 342L462 457L365 447Z" fill="#45425b"/><path d="M376 417Q412 350 458 402M383 436L439 373" stroke="#ce648a" strokeWidth="7" fill="none"/><path d="M375 463L358 555M454 469L475 554M354 460L479 474" stroke="#8b735b" strokeWidth="7"/><path d="M421 536H456V567H421Z" fill="#775b58"/></g>;
+ if(id==='l-lawliet')return <g stroke="#253343" strokeWidth="3"><path d="M310 447H552L571 479H291Z" fill="#728591"/><path d="M291 479H571V491H291ZM311 491L305 571M550 491L557 571" fill="#354653"/><path d="M451 450L496 455L545 449V473L497 480L451 473Z" fill="#d5cfb9"/><path d="M497 456V477M460 460L484 464M507 465L535 459" stroke="#888b86" strokeWidth="1.5"/></g>;
  if(id==='moana') return <g stroke="#614f3c" strokeWidth="3"><path d="M285 462L450 447L467 530L291 547Z" fill="#ab875e"/><path d="M300 470L438 458L443 492L303 505Z" fill="#dac59a"/><path d="M311 490L344 472L370 484L425 469" stroke="#4e7e83" fill="none"/><path d="M310 523L443 510"/><circle cx="387" cy="480" r="8" fill="#68c5a8"/></g>;
  if(id==='elsa') return <g stroke="#b8dfec" strokeWidth="3"><path d="M340 451L480 435L502 470L356 490Z" fill="#8bbccd"/><path d="M377 483L402 586L444 583L472 475Z" fill="#598aab"/><path d="M377 483L444 583L420 480Z" fill="#a0d6e4"/><path d="M375 451L432 444L453 461L391 470Z" fill="#d0eef1"/></g>;
- if(id==='gojo-satoru') return <g stroke="#8585af" strokeWidth="3"><path d="M306 465H447V487H306ZM326 487L321 567M427 487L434 567" fill="#414663"/><path d="M352 454L401 448L410 473L356 479Z" fill="#d6c7b5"/><path d="M365 458L390 455M366 466L396 462" stroke="#6e6184"/></g>;
+ if(id==='gojo-satoru') return <g stroke="#535774" strokeWidth="1.5"><path d="M306 465H447V487H306ZM326 487L321 567M427 487L434 567" fill="#252b43"/><path d="M352 454L401 448L410 473L356 479Z" fill="#d6c7b5"/><path d="M365 458L390 455M366 466L396 462" stroke="#6e6184"/></g>;
  if(id==='wednesday-addams') return <g stroke="#292637" strokeWidth="3">
   <path d="M270 457H511L536 496H244Z" fill="#95755b"/><path d="M244 496H536V508H244Z" fill="#5d4c46"/><path d="M260 508L252 588M520 508L529 588" stroke="#766254" strokeWidth="9"/>
   <path d="M430 452H512L525 482H418Z" fill="#293c44"/><path d="M443 452V413H506V452" fill="#ded3bb"/><path d="M451 425H494M451 435H489" stroke="#928672" strokeWidth="2"/>
@@ -43,37 +53,61 @@ function WorkSurface({id,tool,color}:{id:string;tool:string;color:string}) {
  <path d="M626 460H647V480H626ZM647 465H655V475H647" fill="#d0b899"/>
  </g>;
 }
+function IllustratedSeat({id}:{id:string}){
+ const rig=ILLUSTRATED_RIGS[id];
+ const seat=rig.y+rig.scale*(id==='l-lawliet'?216:id==='cozy-study-girl'?215:175);
+ const floor=rig.y+rig.scale*rig.ground;
+ return <g transform={`translate(${rig.x} ${seat})`} stroke="#293442" strokeWidth="3"><path d="M-38-115Q0-136 38-115L43 0H-43Z" fill="#39454e"/><path d="M-47-2Q0-10 47-2V11H-47Z" fill="#736c66"/><path d={`M-35 11L-44 ${floor-seat}M35 11L47 ${floor-seat}`} strokeWidth="7" fill="none"/><path d="M-31-107Q0-119 31-107" stroke="#88908d" opacity=".35" fill="none"/></g>;
+}
 export function CharacterSanctuary({character,action,onCompanionClick,onMusic,onNotes,onTasks}:{character:Character;action:UserFocusAction;onCompanionClick:()=>void;onMusic:()=>void;onNotes:()=>void;onTasks:()=>void}) {
+ const batman=character.id==='bruce-wayne';
+ const gojo=character.id==='gojo-satoru';
  const pet=character.id.endsWith('-cat')||character.id.endsWith('-dog');
- const standing=['elsa','moana','gojo-satoru','miles-morales'].includes(character.id);
+ const standing=ILLUSTRATED_RIGS[character.id]?.stance==='standing'||ILLUSTRATED_RIGS[character.id]?.stance==='gown'||['elsa','moana','gojo-satoru','miles-morales'].includes(character.id);
  const d={...SANCTUARIES[character.id], x:565, y:280, scale:1.15};
- if(character.id==='wednesday-addams') d.x=610;
- if(pet) { d.x=505; d.y=character.id.endsWith('-cat')?343:420; d.scale=1.15; }
+ if(character.id==='bruce-wayne'||character.id==='naruto-uzumaki') Object.assign(d,REFERENCE_ACTOR_RIGS[character.id]);
+ if(ROSTER_RIGS[character.id])Object.assign(d,ROSTER_RIGS[character.id]);
+ if(ILLUSTRATED_PLACEMENTS[character.id])Object.assign(d,ILLUSTRATED_PLACEMENTS[character.id]);
+ const [appearances,setAppearances]=useState<Record<string,'masked'|'unmasked'>>(()=>{try{const saved=JSON.parse(localStorage.getItem('focusverse-spider-appearance')||'{}');return saved&&typeof saved==='object'&&!Array.isArray(saved)?saved:{}}catch{return {}}});
+ const appearance=appearances[character.id]==='unmasked'?'unmasked':'masked';
+ const chooseAppearance=(next:'masked'|'unmasked')=>{const updated={...appearances,[character.id]:next};setAppearances(updated);try{localStorage.setItem('focusverse-spider-appearance',JSON.stringify(updated))}catch{/* Preferences remain usable when storage is unavailable. */}};
+ const spiderIdentity=['miles-morales','gwen-stacy'].includes(character.id);
  const [lamp,setLamp]=useState(true);
  const objects=roomObjectLayout(character.id);
  const handlers={music:onMusic,notes:onNotes,tasks:onTasks};
  const [manual,setManual]=useState<number|null>(null),[tick,setTick]=useState(0),[hidden,setHidden]=useState(document.hidden),[reduced,setReduced]=useState(()=>matchMedia('(prefers-reduced-motion: reduce)').matches);
  useEffect(()=>{const media=matchMedia('(prefers-reduced-motion: reduce)'); const visibility=()=>setHidden(document.hidden); const motion=()=>setReduced(media.matches);document.addEventListener('visibilitychange',visibility);media.addEventListener('change',motion);return()=>{document.removeEventListener('visibilitychange',visibility);media.removeEventListener('change',motion);};},[]);
  const resting=action==='BREAK'||action==='COMPLETED';
- useEffect(()=>{if(hidden||reduced||resting)return;const timer=setInterval(()=>setTick(t=>t+1),180);return()=>clearInterval(timer);},[hidden,reduced,resting]);
- const index=manual??(Math.floor(tick/96)%2),tool=d.tools[index];
+ useEffect(()=>{if(hidden||reduced||resting||ILLUSTRATED_PLACEMENTS[character.id])return;const reference=character.id==='bruce-wayne'||character.id==='naruto-uzumaki'||!!ROSTER_RIGS[character.id];const timer=setInterval(()=>setTick(t=>t+(reference?96:1)),reference?(ROSTER_RIGS[character.id]?.dwell||24000):180);return()=>clearInterval(timer);},[hidden,reduced,resting,character.id]);
+ const performance=useCompanionPerformance(character.id,manual,resting||!ILLUSTRATED_PLACEMENTS[character.id],ROSTER_RIGS[character.id]?.dwell);
+ const authored=!!ILLUSTRATED_PLACEMENTS[character.id];
+ const index=authored?performance.activity:manual??(Math.floor(tick/96)%2),tool=d.tools[index];
+ const activityLabel=resting?'Taking a quiet break':authored&&performance.phase!=='action'?(performance.phase==='observe'?'Looking around':performance.phase==='settle'?'Settling back in':pet?'Resting comfortably':'Quiet concentration'):d.actions[index];
  const gestureFrames = ['cup','sugar','horse','blindfold','headphones'].includes(tool) ? [0,0,1,2,2,2,3,4,4,5,6,7,0,0,0,0] : [0,1,2,2,3,4,5,6,6,7];
  const frame=reduced||resting?0:gestureFrames[tick%gestureFrames.length];
- return <section className={`spider-study-room character-sanctuary ${lamp?'lamp-on':''} ${hidden||resting?'sanctuary-paused room-hidden':''}`} data-sanctuary={character.id} data-action={index} aria-label={`${character.name}: ${d.title}`}>
- <header className="queens-heading"><div><div className="queens-caption"><span><i/>{d.setting.toUpperCase()}</span><span>FOCUSVERSE</span></div><h2>{d.title.toUpperCase()}</h2><p>Music, notes, and tasks. Select an object to open it.</p></div><span className="queens-live"><Radio size={13}/>{action==='FOCUSING'?'FOCUSING':resting?'BREAK':'READY'}</span></header>
+ return <section className={`spider-study-room character-sanctuary ${lamp?'lamp-on':''} ${hidden||resting?'sanctuary-paused room-hidden':''}`} data-appearance={spiderIdentity?appearance:undefined} data-focus-state={action} data-sanctuary={character.id} data-action={index} data-phase={authored?performance.phase:undefined} aria-label={`${character.name}: ${d.title}`}>
+ <header className="queens-heading"><div><div className="queens-caption"><span><i/>{d.setting.toUpperCase()}</span><span>FOCUSVERSE</span></div><h2>{d.title.toUpperCase()}</h2><p>{gojo?'Leave the noise outside. This space is yours.':batman?'A quiet watch over Gotham. A clear mind for the work ahead.':'Music, notes, and tasks. Select an object to open it.'}</p></div><span className="queens-live"><Radio size={13}/>{action==='FOCUSING'?'FOCUSING':resting?'BREAK':'READY'}</span></header>
  <div className="queens-stage">
- <div className="room-scene-label"><span className="room-scene-dot"/>{resting?'TAKING A BREATHER':d.actions[index].toUpperCase()}</div>
- <svg className="sanctuary-stage" viewBox="0 0 1000 660" role="img" aria-label={`${d.architecture}. ${d.props}. ${d.actions[index]}.`}>
+ <div className="room-scene-label"><span className="room-scene-dot"/>{activityLabel.toUpperCase()}</div>
+ <svg className="sanctuary-stage" viewBox="0 0 1000 660" role="img" aria-label={`${d.architecture}. ${d.props}. ${activityLabel}.`}>
  <image href={`${import.meta.env.BASE_URL}assets/sanctuaries/${character.id}.svg`} width="1000" height="660"/>
+ {batman && <Batcomputer/>}
+ {gojo && <g className="gojo-infinity" aria-hidden="true">
+ <defs><radialGradient id="infinity-halo"><stop stopColor="#62d9ff" stopOpacity=".12"/><stop offset=".65" stopColor="#7180dc" stopOpacity=".06"/><stop offset="1" stopColor="#62d9ff" stopOpacity="0"/></radialGradient></defs>
+ <ellipse cx="565" cy="320" rx="240" ry="250" fill="url(#infinity-halo)"/>
+ <g fill="none" stroke="#8bdcf2" strokeWidth="1"><circle cx="565" cy="315" r="176" opacity=".35"/><circle cx="565" cy="315" r="164" opacity=".16"/>
+ <g className="gojo-orbit"><circle cx="565" cy="315" r="182" strokeDasharray="100 430 20 594" opacity=".8"/><path d="M565 125v16M565 489v16M375 315h16M739 315h16" opacity=".7"/></g>
+ <ellipse cx="565" cy="315" rx="200" ry="64" transform="rotate(-32 565 315)" opacity=".3"/>
+ </g><g fill="#b3edff"><circle cx="408" cy="235" r="2"/><circle cx="728" cy="382" r="2"/><circle cx="601" cy="143" r="2"/></g>
+ </g>}
  <g className={`sanctuary-ambient ambient-${d.ambient}`} fill={d.palette[2]} opacity=".35">{Array.from({length:22},(_,i)=>d.ambient==='rain'?<path key={i} d={`M${60+(i*43)%880} ${65+(i*53)%300}l-5 18`} stroke={d.palette[2]} strokeWidth="1"/>:<circle key={i} cx={60+(i*137)%880} cy={65+(i*53)%300} r={d.ambient==='snow'?2.5:1.5}/>)}</g>
  {!pet&&!standing&&<ellipse cx="550" cy="576" rx="210" ry="29" fill="#0c1422" opacity=".32"/>}
- {!pet&&!standing&&<g stroke="#252534" strokeWidth="5"><path d="M526 352Q565 333 604 352V477H526Z" fill={d.palette[0]}/><path d="M510 477H608V489H510Z" fill={d.palette[1]}/><path d="M523 489L513 578M597 489L610 578" fill="none" strokeWidth="9"/></g>}
- <SanctuaryActor id={character.id} design={d} tool={tool} frame={frame} layer="body"/>
- <WorkSurface id={character.id} tool={tool} color={d.palette[2]}/>
+ {!pet&&!standing&&(ILLUSTRATED_RIGS[character.id]?<IllustratedSeat id={character.id}/>:<g stroke="#252534" strokeWidth="5"><path d="M526 352Q565 333 604 352V477H526Z" fill={d.palette[0]}/><path d="M510 477H608V489H510Z" fill={d.palette[1]}/><path d="M523 489L513 578M597 489L610 578" fill="none" strokeWidth="9"/></g>)}
+ <g className={gojo?"gojo-actor-light":batman?"batman-monitor-light":undefined}><SanctuaryActor id={character.id} design={d} appearance={appearance} tool={tool} frame={frame} phase={authored?performance.phase:undefined} variation={performance.variation} layer="body"/></g>
+ {batman?<BatDesk tool={tool}/>:<WorkSurface id={character.id} tool={tool} color={d.palette[2]}/>}
  {tool==='wand'&&<g transform={`translate(${620+frame%4} ${410-frame%4*3}) rotate(-12)`}><path d="M-23-26H23V22H-23Z" fill="#e4d2ac" stroke="#9c8662" strokeWidth="2"/><path d="M-14-13H13M-14-4H8M-14 5H13" stroke="#9c8662" strokeWidth="2"/></g>}
- {character.id==='rapunzel'&&tool==='brush'&&<g fill="#e7b963" stroke="#d6a04e" strokeWidth="2"><circle cx="550" cy="473" r="8"/><path d="M550 461V457M550 485V488M538 473H533M562 473H567"/></g>}
- <SanctuaryRoomObjects id={character.id} objects={objects}/>
- <SanctuaryActor id={character.id} design={d} tool={tool} frame={frame} layer="hands"/>
+ <g className={gojo?"gojo-room-props":undefined}>{batman?<BatEquipment/>:<SanctuaryRoomObjects id={character.id} objects={objects}/>}</g>
+ <SanctuaryActor id={character.id} design={d} appearance={appearance} tool={tool} frame={frame} phase={authored?performance.phase:undefined} variation={performance.variation} layer="hands"/>
  <defs><radialGradient id={`glow-${character.id}`}><stop stopColor={d.palette[2]} stopOpacity=".22"/><stop offset="1" stopColor={d.palette[2]} stopOpacity="0"/></radialGradient></defs><ellipse className="desk-light" cx="665" cy="431" rx="185" ry="150" fill={`url(#glow-${character.id})`} pointerEvents="none"/>
  <path d="M0 653H1000" stroke={d.palette[1]} strokeWidth="14" opacity=".45"/>
  </svg>
@@ -81,7 +115,7 @@ export function CharacterSanctuary({character,action,onCompanionClick,onMusic,on
  <button className="room-object sanctuary-companion-hit" style={{left:`${(d.x-48*d.scale)/10}%`,top:`${(d.y-24*d.scale)/6.6}%`,width:`${96*d.scale/10}%`,height:`${120*d.scale/6.6}%`}} aria-label={`Encourage ${character.name}`} onClick={onCompanionClick}><span>{character.name.split(' (')[0]}</span></button>
  <button className="room-object sanctuary-light" style={{left:'66%',top:'51%',width:'7%',height:'9%'}} aria-label="Toggle room light" aria-pressed={lamp} onClick={()=>setLamp(v=>!v)}><span>Room light</span></button>
  </div>
- <div className="room-activity-bar"><span className="room-activity-label"><Sparkles size={13}/>COMPANION ACTIVITY</span><div className="room-activity-options sanctuary-actions" role="group" aria-label="Companion activities"><button aria-pressed={manual===null} onClick={()=>setManual(null)}><RotateCw size={13}/>Auto</button>{d.actions.map((a,i)=><button key={a} disabled={resting} aria-pressed={manual===i} onClick={()=>setManual(i)}>{a}</button>)}</div></div>
- <footer className="queens-footer"><div><span className="queens-kicker">{character.name.split(' ')[0].toUpperCase()} // ACTIVITY</span><p aria-live="polite">{resting?'Taking a quiet break.':d.actions[index]+'.'}</p></div><nav className="room-shortcuts" aria-label="Sanctuary tools"><button onClick={onMusic}><Headphones size={14}/>Music</button><button onClick={onNotes}><NotebookPen size={14}/>Notes</button><button onClick={onTasks}><ListTodo size={14}/>Tasks</button></nav></footer>
+ <div className="room-activity-bar"><span className="room-activity-label"><Sparkles size={13}/>COMPANION ACTIVITY</span><div className="room-activity-options sanctuary-actions" role="group" aria-label="Companion activities"><button aria-pressed={manual===null} onClick={()=>setManual(null)}><RotateCw size={13}/>Auto</button>{d.actions.map((a,i)=><button key={a} disabled={resting} aria-pressed={manual===i} onClick={()=>setManual(i)}>{a}</button>)}</div>{spiderIdentity&&<div className="room-activity-options sanctuary-appearance" role="group" aria-label={`${character.name} appearance`}><span className="room-activity-label">LOOK</span><button aria-pressed={appearance==='masked'} onClick={()=>chooseAppearance('masked')}>Masked</button><button aria-pressed={appearance==='unmasked'} onClick={()=>chooseAppearance('unmasked')}>Unmasked</button></div>}</div>
+ <footer className="queens-footer"><div><span className="queens-kicker">{character.name.split(' ')[0].toUpperCase()} // ACTIVITY</span><p aria-live="polite">{activityLabel+'.'}</p></div><nav className="room-shortcuts" aria-label="Sanctuary tools"><button onClick={onMusic}><Headphones size={14}/>Music</button><button onClick={onNotes}><NotebookPen size={14}/>Notes</button><button onClick={onTasks}><ListTodo size={14}/>Tasks</button></nav></footer>
  </section>;
 }

@@ -48,7 +48,7 @@ export const StudyRoomsView: React.FC = () => {
     e.preventDefault();
     if (!joinCodeInput.trim()) return;
     audioEngine.playClick();
-    alert(`Connected to Study Room: ${joinCodeInput.toUpperCase()}! Synchronizing focus sprint...`);
+    alert(`Demo only: ${joinCodeInput.toUpperCase()} was not joined. These sample peers are simulated; no connection or synchronization occurs.`);
     setJoinCodeInput('');
   };
 
@@ -62,10 +62,10 @@ export const StudyRoomsView: React.FC = () => {
           </div>
           <div>
             <h1 className="font-silkscreen text-base sm:text-lg text-white">
-              VIRTUAL ACCOUNTABILITY STUDY ROOM
+              STUDY ROOM DEMO
             </h1>
             <p className="text-[10px] text-gray-400">
-              Synchronized focus sprints, shared goals, and peer accountability
+              Local preview with simulated peers. No live users, shared messages, or synchronization.
             </p>
           </div>
         </div>
@@ -73,14 +73,14 @@ export const StudyRoomsView: React.FC = () => {
         {/* Room Code Pill */}
         <div className="flex items-center gap-2">
           <div className="px-3 py-1 bg-void border border-arcade-gold flex items-center gap-2">
-            <span className="text-[10px] text-gray-400 font-pixel">ROOM CODE:</span>
+            <span className="text-[10px] text-gray-400 font-pixel">DEMO CODE:</span>
             <span className="font-silkscreen text-xs text-arcade-gold font-bold">{room.code}</span>
           </div>
 
           <button
             onClick={handleCopyCode}
             className="pixel-btn px-2.5 py-1 text-xs text-gray-300 hover:text-white flex items-center gap-1"
-            title="Copy room invite link"
+            title="Copy demo room code"
           >
             {copiedCode ? <Check size={13} className="text-green-400" /> : <Copy size={13} />}
             <span>{copiedCode ? 'COPIED' : 'COPY'}</span>
@@ -96,10 +96,10 @@ export const StudyRoomsView: React.FC = () => {
           <div className="bg-void-card pixel-border border-arcade-cyan p-5 shadow-pixel space-y-3">
             <div className="flex items-center justify-between pb-2 border-b border-arcade-border">
               <span className="font-silkscreen text-xs text-arcade-cyan uppercase">
-                SHARED STUDY SPRINT // {room.name}
+                SAMPLE STUDY SPRINT // {room.name}
               </span>
               <span className="px-2 py-0.5 bg-green-950/70 border border-green-500 text-green-300 text-[9px] font-bold">
-                ● LIVE SYNC
+                ● SIMULATED
               </span>
             </div>
 
@@ -113,7 +113,7 @@ export const StudyRoomsView: React.FC = () => {
             {/* Quick Cheers Reaction Bar */}
             <div className="space-y-2 pt-2">
               <div className="text-[10px] text-gray-400 font-silkscreen uppercase">
-                SEND ACCOUNTABILITY CHEER:
+                ADD A LOCAL DEMO CHEER:
               </div>
               <div className="flex flex-wrap gap-2">
                 {[
@@ -156,8 +156,8 @@ export const StudyRoomsView: React.FC = () => {
           {/* Recent Cheers Ticker */}
           <div className="bg-void-card pixel-border border-arcade-border p-4 shadow-pixel">
             <div className="flex items-center justify-between pb-2 mb-2 border-b border-arcade-border text-xs">
-              <span className="font-silkscreen text-arcade-gold">ACTIVITY FEED</span>
-              <span className="text-[9px] text-gray-500 font-pixel">REAL-TIME</span>
+              <span className="font-silkscreen text-arcade-gold">DEMO ACTIVITY FEED</span>
+              <span className="text-[9px] text-gray-500 font-pixel">LOCAL ONLY</span>
             </div>
 
             <div className="space-y-1.5 max-h-40 overflow-y-auto">
@@ -177,9 +177,9 @@ export const StudyRoomsView: React.FC = () => {
           <div className="bg-void-card pixel-border border-arcade-border p-4 shadow-pixel space-y-3">
             <div className="flex items-center justify-between pb-2 border-b border-arcade-border">
               <span className="font-silkscreen text-xs text-white uppercase">
-                SCHOLARS IN ROOM ({room.participants.length})
+                SAMPLE PARTICIPANTS ({room.participants.length})
               </span>
-              <span className="text-[9px] text-green-400 font-pixel">ONLINE</span>
+              <span className="text-[9px] text-green-400 font-pixel">SIMULATED</span>
             </div>
 
             <div className="space-y-2">
@@ -223,11 +223,11 @@ export const StudyRoomsView: React.FC = () => {
 
           {/* Join Another Room Form */}
           <div className="bg-void-card pixel-border border-arcade-border p-4 shadow-pixel space-y-2">
-            <div className="font-silkscreen text-xs text-arcade-gold">JOIN ANOTHER STUDY ROOM</div>
+            <div className="font-silkscreen text-xs text-arcade-gold">PREVIEW A DEMO ROOM CODE</div>
             <form onSubmit={handleJoinRoom} className="flex gap-2 pt-1">
               <input
                 type="text"
-                placeholder="Enter 8-digit Room Code..."
+                placeholder="Enter a demo room code..."
                 value={joinCodeInput}
                 onChange={(e) => setJoinCodeInput(e.target.value)}
                 className="flex-1 p-2 bg-void border border-arcade-border text-xs text-white outline-none focus:border-arcade-gold uppercase"
@@ -236,7 +236,7 @@ export const StudyRoomsView: React.FC = () => {
                 type="submit"
                 className="pixel-btn-primary px-3 py-1 font-pixel text-[10px] text-black uppercase"
               >
-                JOIN
+                PREVIEW
               </button>
             </form>
           </div>

@@ -25,11 +25,18 @@ const themes: Record<string,[string,string,string]> = {
 export function roomObjectLayout(id:string):SanctuaryObject[] {
  const labels=themes[id];
  const music:Record<string,[number,number]>={'gwen-stacy':[87,365],'miles-morales':[790,398],'cozy-study-girl':[90,415],'neo':[780,377],'elsa':[125,398],'moana':[90,385],'purring-window-cat':[90,500],'loyal-fireplace-dog':[110,351]};
- const tasks:Record<string,[number,number]>={'bruce-wayne':[827,70],'miles-morales':[725,185],'gwen-stacy':[832,80],'naruto-uzumaki':[754,69],'gojo-satoru':[799,96],'levi-ackerman':[829,180],'l-lawliet':[807,88],'elsa':[801,181],'rapunzel':[830,75],'moana':[796,285],'hermione-granger':[755,92],'wednesday-addams':[798,80],'officer-k':[800,92],'neo':[830,230],'cozy-study-girl':[535,130],'late-night-study-boy':[763,225],'purring-window-cat':[803,95],'loyal-fireplace-dog':[430,87]};
+ const tasks:Record<string,[number,number]>={'bruce-wayne':[827,70],'miles-morales':[725,185],'gwen-stacy':[832,80],'naruto-uzumaki':[754,69],'gojo-satoru':[799,96],'levi-ackerman':[829,180],'l-lawliet':[807,88],'elsa':[801,181],'rapunzel':[830,75],'moana':[796,285],'hermione-granger':[755,92],'wednesday-addams':[798,80],'officer-k':[800,92],'neo':[830,230],'cozy-study-girl':[770,125],'late-night-study-boy':[763,225],'purring-window-cat':[803,95],'loyal-fireplace-dog':[430,87]};
  const [mx,my]=music[id]??[125,393], [tx,ty]=tasks[id];
  return [{feature:'music',label:labels[0],x:mx,y:my,width:130,height:85},{feature:'notes',label:labels[1],x:id==='miles-morales'?280:762,y:520,width:120,height:66},{feature:'tasks',label:labels[2],x:id==='l-lawliet'?638:id==='late-night-study-boy'?742:tx,y:id==='l-lawliet'?61:id==='late-night-study-boy'?230:ty,width:id==='l-lawliet'?293:id==='late-night-study-boy'?155:112,height:id==='l-lawliet'?216:id==='late-night-study-boy'?116:142}];
 }
 export function SanctuaryRoomObjects({id,objects}:{id:string;objects:SanctuaryObject[]}) {
+ if(id==='gojo-satoru') return <g stroke="#57627e" strokeWidth="1.5" strokeLinejoin="miter">
+  <path d="M675 55V330" fill="none" stroke="#38425b"/>
+  <g transform="translate(675 350)"><path d="M-14-17H14V32H-14Z" fill="#182339"/><path d="M-8-10H8V25H-8Z" fill="#9ac5da" opacity=".8"/><path d="M0-10V25" stroke="#def6ed"/><path d="M-19-19H19M-18 34H18"/></g>
+  {objects.map(o=><g key={o.feature} transform={`translate(${o.x} ${o.y})`} data-room-prop={o.feature}>
+   {o.feature==='tasks'?<><path d="M0 0H112V142H0Z" fill="#151d31"/><path d="M6 6H106V136H6Z" fill="none" stroke="#34405b"/><path d="M16 18H96M16 123H96" stroke="#6c8194"/><path d="M30 30H80V108H30Z" fill="#b5ac99"/><g fill="none" stroke="#514c63"><circle cx="55" cy="57" r="15"/><path d="M55 38V76M36 57H74M42 85H68M42 92H64"/></g></>:o.feature==='music'?<><path d="M-9 80H140V88H-9ZM0 88L-5 137M129 88L134 137" fill="#25263b"/><path d="M4 24H126V78H4Z" fill="#182338"/>{[28,102].map(x=><g key={x}><circle cx={x} cy="51" r="18" fill="#101627"/><circle cx={x} cy="51" r="12" fill="none" stroke="#41566d"/><circle cx={x} cy="51" r="4" fill="#718a9c"/></g>)}<path d="M54 40H76V50H54Z" fill="#72b6c4"/><path d="M55 61H75" stroke="#b5a072"/></>:<><path d="M-12 58H132V70H-12ZM-3 70L-7 112M124 70L130 112" fill="#242539"/><path d="M0 7L58 12L118 4V55L58 63L0 55Z" fill="#b7ad9c"/><path d="M58 13V62M9 22L47 27M9 33L47 38M9 44L38 48M68 25L108 20M68 36L108 31M68 47L99 43" fill="none" stroke="#6d6977"/></>}
+  </g>)}
+ </g>;
  const fantasy=['elsa','moana','rapunzel','hermione-granger'].includes(id);
  const scroll=['naruto-uzumaki','moana','hermione-granger','levi-ackerman'].includes(id);
  const terminal=['neo','officer-k','bruce-wayne'].includes(id);

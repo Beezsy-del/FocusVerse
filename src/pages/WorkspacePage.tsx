@@ -7,9 +7,11 @@ import { PixelEmblem } from '../components/PixelEmblems';
 import { CustomAppearanceState } from '../utils/pixelSpriteCompositor';
 import { SpiderStudyRoom } from '../components/SpiderStudyRoom';
 import { RoomToolPanel } from '../components/RoomToolPanel';
-import { FullBodyPixelSprite } from '../components/FullBodyPixelSprite';
+import './GojoWorkspace.css';
+import './BatmanWorkspace.css';
 import { CharacterSanctuary } from '../components/CharacterSanctuary';
 import { StarkWorkshop } from '../components/StarkWorkshop';
+import { useTimerStatus } from '../context/TimerContext';
 import { TimerWidget } from '../components/TimerWidget';
 import { TodoWidget } from '../components/TodoWidget';
 import { NotesWidget } from '../components/NotesWidget';
@@ -46,6 +48,21 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
   initialTask,
   hideHeader = false,
 }) => {
+  const workspaceRef = useRef<HTMLDivElement>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  useEffect(() => {
+    const syncFullscreen = () => setIsFullscreen(document.fullscreenElement === workspaceRef.current);
+    document.addEventListener('fullscreenchange', syncFullscreen);
+    return () => document.removeEventListener('fullscreenchange', syncFullscreen);
+  }, []);
+  const enterFullscreen = () => {
+    const workspace = workspaceRef.current;
+    if (!workspace || document.fullscreenElement || !workspace.requestFullscreen) return;
+    // Request during the Start click so browsers retain user activation.
+    void workspace.requestFullscreen().catch(() => {
+      // A denied fullscreen request must never prevent the timer from starting.
+    });
+  };
   const spiderRoom = character.id === 'peter-parker';
   const [roomPanel, setRoomPanel] = useState<'notes' | 'tasks' | null>(null);
   const [musicRequest, setMusicRequest] = useState(0);
@@ -54,8 +71,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
   const [zenMode, setZenMode] = useState(false);
   const [dimmerOpacity, setDimmerOpacity] = useState(0.25);
   const [showDimmerSlider, setShowDimmerSlider] = useState(false);
-  const [currentAction, setCurrentAction] = useState<UserFocusAction>('IDLE');
-  const [timerModeReadout, setTimerModeReadout] = useState('POMODORO');
+  const { action: currentAction, mode: timerModeReadout } = useTimerStatus();
   const bubbleTimer = useRef<ReturnType<typeof setTimeout>>();
   useEffect(() => { setCompanionBubble(null); return () => clearTimeout(bubbleTimer.current); }, [character.id]);
   const [companionBubble, setCompanionBubble] = useState<string | null>(null);
@@ -130,6 +146,8 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
 
   return (
     <div
+      ref={workspaceRef}
+      data-trainer={character.id}
       className="focus-workspace relative min-h-screen text-gray-200 flex flex-col justify-between selection:bg-arcade-gold selection:text-black overflow-x-hidden"
       style={{ backgroundColor: '#0B0914' }}
     >
@@ -141,7 +159,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
       />
 
       {/* --- TOP HUD BAR --- */}
-      {!hideHeader && (
+      {!hideHeader && !isFullscreen && (
         <header className="relative z-30 px-3 py-2 bg-void-darkest/95 border-b-2 border-arcade-border shadow-[0_2px_12px_rgba(0,0,0,0.6)] backdrop-blur-sm select-none">
           <div className="workspace-toolbar mx-auto flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
             {/* Left: Back to Roster + Player Name Badge + Character Selector */}
@@ -266,6 +284,13 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
                 )}
               </div>
 
+              {isFullscreen && <button
+                onClick={() => { void document.exitFullscreen().catch(() => {}); }}
+                className="pixel-btn px-2.5 py-1 text-xs flex items-center gap-1"
+                aria-label="Exit fullscreen"
+                title="Exit fullscreen (Esc)"
+              ><Minimize2 size={13}/><span className="hidden sm:inline">EXIT FULLSCREEN</span></button>}
+
               {/* Zen Mode Button */}
               <button
                 onClick={toggleZenMode}
@@ -350,16 +375,24 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
           {/* Left Column: Focus Study Timer + 2D In-Game Focus Companion Stage */}
           <div className={"workspace-timer space-y-4"}>
             <TimerWidget
+              onStart={enterFullscreen}
               character={character}
-              onActionChange={(action) => setCurrentAction(action)}
-              onModeChange={(mode) => setTimerModeReadout(mode)}
-              initialTask={initialTask}
             />
+        <MusicCenter inline={isFullscreen} initialAmbienceProfile={character.ambienceProfile} openRequest={musicRequest} soundscapeControls={<div className="room-soundscapes" aria-label="Room soundscapes">
+          <strong>ROOM SOUNDS</strong>
+          <label>Soundscape <select aria-label="Room soundscape" value={activeProfile} onChange={e => handleProfileSelect(e.target.value)}>{['rain','lofi','fire','space','wind','purr','matrix','sonar'].map(p => <option key={p} value={p}>{p}</option>)}</select></label>
+          <button onClick={toggleAmbience} aria-pressed={isAmbiencePlaying}>{isAmbiencePlaying ? 'Pause soundscape' : 'Play soundscape'}</button>
+          <label>Volume <input aria-label="Soundscape volume" type="range" min="0" max="1" step="0.01" value={ambienceVol} onChange={e => handleAmbienceVol(Number(e.target.value))}/></label>
+          <button onClick={toggleSynth} aria-pressed={isSynthPlaying}>{isSynthPlaying ? 'Pause synthesizer' : 'Play synthesizer'}</button>
+          <label>Synth volume <input aria-label="Synth volume" type="range" min="0" max="1" step="0.05" value={synthVol} onChange={e => handleSynthVol(Number(e.target.value))}/></label>
+          <button onClick={toggleMute} aria-pressed={isMuted}>{isMuted ? 'Unmute room audio' : 'Mute room audio'}</button>
+          <span role="status">{isAmbiencePlaying ? `Playing ${activeProfile}` : 'Soundscape paused'}</span>
+        </div>} />
 
           </div>
           <div className="workspace-scene">
             {spiderRoom ? <SpiderStudyRoom action={currentAction} completion={taskCompletion} onMusic={() => setMusicRequest(n => n + 1)} onNotes={() => setRoomPanel('notes')} onTasks={() => setRoomPanel('tasks')} /> : character.id === 'tony-stark' ? <StarkWorkshop action={currentAction} onCompanionClick={handleCompanionClick} onMusic={() => setMusicRequest(n => n + 1)} onNotes={() => setRoomPanel('notes')} onTasks={() => setRoomPanel('tasks')} /> : <CharacterSanctuary key={character.id} character={character} action={currentAction} onCompanionClick={handleCompanionClick} onMusic={() => setMusicRequest(n => n + 1)} onNotes={() => setRoomPanel('notes')} onTasks={() => setRoomPanel('tasks')} />}
-            <div className="scene-companion-note">{customAppearance && <div className="sanctuary-player-avatar"><FullBodyPixelSprite appearance={customAppearance} size={72} animated={false} showPlatform={false}/><span>Your saved avatar</span></div>}<span className="text-arcade-cyan">{archetypeMode ? character.archetypeName.split('/')[0] : character.name.split('(')[0]}</span><p>{companionBubble || character.quote}</p></div>
+            <div className="scene-companion-note"><span className="text-arcade-cyan">{archetypeMode ? character.archetypeName.split('/')[0] : character.name.split('(')[0]}</span><p>{companionBubble || character.quote}</p></div>
             <TutorDialogueBanner activeCharacter={character} inline />
           </div>
 
@@ -370,16 +403,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
           <RoomToolPanel open={roomPanel === 'notes'} title="Study notebook" onClose={() => setRoomPanel(null)}><NotesWidget accentColor={character.palette.accentSecondary}/></RoomToolPanel>
           <RoomToolPanel open={roomPanel === 'tasks'} title="Task board" onClose={() => setRoomPanel(null)}><TodoWidget onTaskComplete={() => setTaskCompletion(n => n + 1)} accentColor={character.palette.accentGold}/></RoomToolPanel>
         </>
-        <MusicCenter initialAmbienceProfile={character.ambienceProfile} openRequest={musicRequest} soundscapeControls={<div className="room-soundscapes" aria-label="Room soundscapes">
-          <strong>ROOM SOUNDS</strong>
-          <label>Soundscape <select aria-label="Room soundscape" value={activeProfile} onChange={e => handleProfileSelect(e.target.value)}>{['rain','lofi','fire','space','wind','purr','matrix','sonar'].map(p => <option key={p} value={p}>{p}</option>)}</select></label>
-          <button onClick={toggleAmbience} aria-pressed={isAmbiencePlaying}>{isAmbiencePlaying ? 'Pause soundscape' : 'Play soundscape'}</button>
-          <label>Volume <input aria-label="Soundscape volume" type="range" min="0" max="1" step="0.01" value={ambienceVol} onChange={e => handleAmbienceVol(Number(e.target.value))}/></label>
-          <button onClick={toggleSynth} aria-pressed={isSynthPlaying}>{isSynthPlaying ? 'Pause synthesizer' : 'Play synthesizer'}</button>
-          <label>Synth volume <input aria-label="Synth volume" type="range" min="0" max="1" step="0.05" value={synthVol} onChange={e => handleSynthVol(Number(e.target.value))}/></label>
-          <button onClick={toggleMute} aria-pressed={isMuted}>{isMuted ? 'Unmute room audio' : 'Mute room audio'}</button>
-          <span role="status">{isAmbiencePlaying ? `Playing ${activeProfile}` : 'Soundscape paused'}</span>
-        </div>} />
+
       </main>
 
       {/* Global Credits Footer */}

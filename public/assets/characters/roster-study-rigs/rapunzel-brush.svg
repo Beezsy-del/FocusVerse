@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="415 236 330 350" width="660" height="700"><style>.roster-breathe { animation:roster-breath var(--roster-breath,7s) ease-in-out infinite; }
+.roster-head { transform-origin:0px 52px; }
+.roster-eyes { animation:roster-blink var(--roster-blink,11.3s) linear infinite; }
+.roster-miles-morales .miles-mask path[fill=&quot;#df354b&quot;] { fill:#252c3c; }
+.roster-miles-morales .miles-mask path[fill=&quot;#922b48&quot;] { fill:#151f31; }
+.roster-miles-morales .miles-mask g[stroke=&quot;#241d32&quot;] { stroke:#b1475e; }
+.roster-miles-morales .miles-mask g[fill=&quot;#f5f6e9&quot;] { stroke:#b94561; }
+.roster-miles-morales .roster-head { animation:miles-survey 21s ease-in-out infinite; }
+.roster-action-spray .roster-near { animation:miles-paint 9s ease-in-out infinite; }
+.roster-action-spark .roster-near { animation:miles-charge 12s ease-in-out infinite; }
+.roster-gwen-stacy .roster-near { animation:gwen-snare 5.2s ease-in-out infinite; }
+.roster-gwen-stacy .roster-far { animation:gwen-snare 5.2s ease-in-out -.35s infinite; }
+.roster-gwen-stacy.roster-action-cymbal .roster-near { animation:gwen-accent 7s ease-in-out infinite; }
+.roster-gojo-satoru.roster-action-blindfold .roster-near { animation:gojo-adjust 14s ease-in-out infinite; }
+.roster-gojo-satoru.roster-action-infinity .roster-near { animation:gojo-balance 11s ease-in-out infinite; }
+.roster-levi-ackerman.roster-action-blade .roster-near { animation:levi-polish 10s ease-in-out infinite; }
+.roster-levi-ackerman.roster-action-cup .roster-near { animation:levi-sip 17s ease-in-out infinite; }
+.roster-l-lawliet .roster-head { animation:l-deduce 27s ease-in-out infinite; }
+.roster-l-lawliet.roster-action-sugar .roster-near { animation:l-sugar 16s ease-in-out infinite; }
+.roster-l-lawliet .roster-eyes { animation-duration:17.7s; }
+.roster-cloth { transform-origin:0px 65px; animation:roster-cloth 13s ease-in-out infinite; }
+@keyframes roster-breath { 50% { transform:translateY(-.65px); } }
+@keyframes roster-blink { 0%,43%,46%,100% { transform:scaleY(1); } 44.5% { transform:scaleY(.08); } }
+@keyframes roster-cloth { 50% { transform:skewX(.25deg); } }
+@keyframes miles-survey { 0%,60%,100% { transform:rotate(0); } 74%,83% { transform:rotate(-3deg); } }
+@keyframes miles-paint { 0%,35%,100% { transform:rotate(0); } 50%,70% { transform:rotate(3deg); } }
+@keyframes miles-charge { 50% { transform:rotate(-2deg); } }
+@keyframes gwen-snare { 0%,30%,65%,100% { transform:rotate(0); } 38%,55% { transform:rotate(-2deg); } 42%,59% { transform:rotate(1deg); } }
+@keyframes gwen-accent { 0%,45%,75%,100% { transform:rotate(0); } 58% { transform:rotate(-4deg); } 64% { transform:rotate(1.5deg); } }
+@keyframes gojo-adjust { 0%,30%,75%,100% { transform:rotate(0); } 43%,60% { transform:rotate(2deg); } }
+@keyframes gojo-balance { 50% { transform:rotate(-2deg); } }
+@keyframes levi-polish { 0%,30%,100% { transform:rotate(0); } 42%,63% { transform:rotate(1.5deg); } 52%,73% { transform:rotate(-1.5deg); } }
+@keyframes levi-sip { 0%,40%,100% { transform:rotate(0); } 56%,70% { transform:rotate(-5deg); } }
+@keyframes l-deduce { 0%,60%,100% { transform:rotate(0); } 72%,88% { transform:rotate(4deg); } }
+@keyframes l-sugar { 0%,35%,100% { transform:rotate(0); } 53%,68% { transform:rotate(-3deg); } }
+.sanctuary-paused .roster-actor *, .room-hidden .roster-actor * { animation-play-state:paused!important; }
+@media(prefers-reduced-motion:reduce) { .roster-actor * { animation:none!important; transition:none!important; } }
+.roster-elsa .roster-near { animation:elsa-weave 12s ease-in-out infinite; }
+.roster-elsa.roster-action-ribbon .roster-near { animation:elsa-ribbon 15s ease-in-out infinite; }
+.roster-elsa .roster-braid { transform-origin:20px 30px; animation:elsa-braid 17s ease-in-out infinite; }
+.roster-rapunzel.roster-action-brush .roster-near { animation:rapunzel-paint 9.2s ease-in-out infinite; }
+.roster-rapunzel.roster-action-lantern .roster-near { animation:rapunzel-lantern 14s ease-in-out infinite; }
+.roster-rapunzel .roster-head { animation:rapunzel-observe 22s ease-in-out infinite; }
+.roster-moana.roster-action-compass .roster-head { animation:moana-stars 26s ease-in-out infinite; }
+.roster-moana.roster-action-paddle .roster-near { animation:moana-paddle 13s ease-in-out infinite; }
+.roster-moana .roster-eyes { animation-duration:13.1s; }
+.roster-hermione-granger.roster-action-quill .roster-near { animation:hermione-annotate 7.8s ease-in-out infinite; }
+.roster-hermione-granger.roster-action-wand .roster-near { animation:hermione-levitate 12.4s ease-in-out infinite; }
+.roster-wednesday-addams.roster-action-type .roster-near { animation:wednesday-type 5.7s ease-in-out infinite; }
+.roster-wednesday-addams.roster-action-type .roster-far { animation:wednesday-type 5.7s ease-in-out -.2s infinite; }
+.roster-wednesday-addams.roster-action-bow .roster-near { animation:wednesday-bow 11s ease-in-out infinite; }
+.roster-wednesday-addams .roster-eyes { animation-duration:24s; }
+@keyframes elsa-weave { 0%,100% { transform:rotate(0); } 35%,65% { transform:rotate(-2.5deg); } }
+@keyframes elsa-ribbon { 50% { transform:rotate(-4deg); } }
+@keyframes elsa-braid { 50% { transform:rotate(.8deg); } }
+@keyframes rapunzel-paint { 0%,30%,100% { transform:rotate(0); } 42%,68% { transform:rotate(2deg); } 55%,78% { transform:rotate(-1deg); } }
+@keyframes rapunzel-lantern { 50% { transform:rotate(-3deg); } }
+@keyframes rapunzel-observe { 0%,65%,100% { transform:rotate(0); } 75%,85% { transform:rotate(-3deg); } }
+@keyframes moana-stars { 0%,55%,100% { transform:rotate(0); } 67%,83% { transform:rotate(-4deg); } }
+@keyframes moana-paddle { 0%,100% { transform:rotate(0); } 45%,65% { transform:rotate(2deg); } }
+@keyframes hermione-annotate { 0%,35%,100% { transform:rotate(0); } 44%,64% { transform:rotate(1deg); } 53%,73% { transform:rotate(-.7deg); } }
+@keyframes hermione-levitate { 0%,30%,100% { transform:rotate(0); } 48%,64% { transform:rotate(-3deg); } }
+@keyframes wednesday-type { 0%,35%,80%,100% { transform:rotate(0); } 43%,58%,72% { transform:rotate(.7deg); } 49%,64% { transform:rotate(-.5deg); } }
+@keyframes wednesday-bow { 0%,20%,100% { transform:rotate(-2deg); } 45%,65% { transform:rotate(2deg); } }
+.roster-l-lawliet .roster-breathe { transform-origin:0px 140px; animation:l-breath 8.3s ease-in-out infinite; }
+@keyframes l-breath { 0%,100% { transform:rotate(-3deg); } 50% { transform:rotate(-3deg) translateY(-.6px); } }
+/* Four quiet, occupation-specific rhythms; each leaves a long still interval. */
+.roster-officer-k .roster-head { transform-origin:0px 51px; animation:k-assess 23s ease-in-out infinite; }
+.roster-officer-k.roster-action-horse .roster-near { animation:k-evidence 19s ease-in-out infinite; }
+.roster-neo.roster-action-type .roster-near { animation:neo-key 12s ease-in-out infinite; }
+.roster-neo.roster-action-type .roster-far { animation:neo-key 12s 1.3s ease-in-out infinite reverse; }
+.roster-neo.roster-action-spoon .tool-spoon { transform-origin:0 5px; animation:neo-spoon 18s ease-in-out infinite; }
+.roster-cozy-study-girl.roster-action-pencil .roster-near { animation:journal-line 16s ease-in-out infinite; }
+.roster-cozy-study-girl.roster-action-cup .roster-head { transform-origin:0 51px; animation:tea-pause 21s ease-in-out infinite; }
+.roster-late-night-study-boy.roster-action-type .roster-near { animation:debug-keys 14s ease-in-out infinite; }
+.roster-late-night-study-boy.roster-action-headphones .roster-near { animation:headphone-fit 20s ease-in-out infinite; }
+@keyframes k-assess {0%,60%,100%{rotate:0deg}68%,80%{rotate:2deg}}
+@keyframes k-evidence {0%,60%,100%{rotate:0deg}68%,80%{rotate:-2deg}}
+@keyframes neo-key {0%,10%,14%,18%,70%,100%{rotate:0deg}12%,16%,72%{rotate:.7deg}}
+@keyframes neo-spoon {0%,45%,100%{rotate:0deg}60%,80%{rotate:-11deg}}
+@keyframes journal-line {0%,10%,14%,18%,22%,100%{rotate:0deg}12%,16%,20%{rotate:1deg}30%,34%{rotate:-1deg}}
+@keyframes tea-pause {0%,60%,100%{rotate:0deg}70%,80%{rotate:2deg}}
+@keyframes debug-keys {0%,8%,12%,16%,20%,100%{rotate:0deg}10%,14%,18%{rotate:.65deg}}
+@keyframes headphone-fit {0%,10%,18%,100%{rotate:0deg}12%,16%{rotate:-1.8deg}}
+.pet-cat .pet-body {transform-origin:0 104px;animation:pet-breath 5.7s ease-in-out infinite}
+.pet-dog .pet-body {transform-origin:0 105px;animation:pet-breath 6.4s ease-in-out infinite}
+.pet-tail {transform-origin:43px 88px;animation:cat-tail 17s ease-in-out infinite}
+.pet-dog .pet-tail {animation:dog-tail 22s ease-in-out infinite}
+.pet-grooming {rotate:0deg;animation:cat-wash 16s ease-in-out infinite}
+.pet-cat.roster-action-paw .pet-head {animation:cat-wash-head 16s ease-in-out infinite}
+.pet-cat.roster-action-leaf .pet-head {animation:cat-watch 19s ease-in-out infinite}
+.pet-leaf {animation:leaf-drift 19s ease-in-out infinite}
+.pet-offering {rotate:0deg;animation:dog-offer 21s ease-in-out infinite}
+.pet-dog.roster-action-ear .pet-head {animation:dog-listen 23s ease-in-out infinite}
+.pet-dog.roster-action-ear .pet-ear-right {transform-origin:0 -15px;animation:dog-ear 23s ease-in-out infinite}
+.pet-cat .roster-eyes {animation:roster-blink 11s ease-in-out infinite}
+.pet-dog .roster-eyes {animation:roster-blink 13s ease-in-out infinite}
+@keyframes pet-breath {0%,100%{translate:0 0}50%{translate:0 -.5px}}
+@keyframes cat-tail {0%,60%,100%{rotate:0deg}70%,80%{rotate:-3deg}}
+@keyframes dog-tail {0%,20%,100%{rotate:0deg}12%,16%{rotate:-5deg}14%,18%{rotate:3deg}}
+@keyframes cat-wash {0%,12%,20%,100%{rotate:0deg}14%,18%{rotate:3deg}}
+@keyframes cat-wash-head {0%,10%,22%,100%{rotate:0deg}14%,18%{rotate:-3deg}}
+@keyframes cat-watch {0%,100%{rotate:0deg}30%,50%{rotate:-5deg}70%{rotate:2deg}}
+@keyframes leaf-drift {0%,100%{translate:0 0;rotate:0deg}50%{translate:-10px 10px;rotate:8deg}}
+@keyframes dog-offer {0%,100%{rotate:0deg}40%,60%{rotate:3deg}}
+@keyframes dog-listen {0%,60%,100%{rotate:0deg}70%,85%{rotate:7deg}}
+@keyframes dog-ear {0%,65%,100%{rotate:0deg}72%,80%{rotate:-8deg}}
+
+*{animation:none!important}</style><g class="roster-actor roster-rapunzel roster-action-brush" data-actor="rapunzel" data-rig-layer="body" transform="translate(565 286) scale(1.13)" style="--roster-breath:6.7s;--roster-blink:11.59s" stroke="#202a38" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round" pointer-events="none"><g class="roster-cloth"><path d="M-24 3Q-55 41-45 138Q-37 180-54 214Q-51 254 32 248Q71 244 56 219Q43 207 34 218Q20 237-10 223L19 39Z" fill="#e7bf5f"></path><path d="M-30 28Q-43 107-28 160Q-13 207-33 223Q-23 242 30 237" fill="none" stroke="#f3dc8c" opacity=".45" stroke-width="2"></path></g><g><g fill="#0c1926" opacity=".18" stroke="none"><ellipse cx="-56" cy="250" rx="24" ry="3"></ellipse><ellipse cx="29" cy="250" rx="22" ry="3"></ellipse></g><path d="M-25 135Q-46 143-54 164L-63 183L-56 230H-37L-38 185L-13 168L8 147L29 153L39 178L23 229H43L59 176Q60 166 48 154L24 133Z" fill="#eec1a5"></path><path d="M-34 152L-48 181L-45 215M31 155L46 178L33 215" fill="none" stroke="#7b8997" opacity=".35" stroke-width="2"></path><path d="M-25 133Q-46 145-58 165L-52 231Q-29 241-8 231Q17 240 38 229L47 177Q40 153 26 134Z" fill="#b27cac"></path><path d="M-19 148Q-43 177-43 225M-4 151Q-20 180-22 228M12 148Q25 187 24 226" fill="none" stroke="#d7a7cd" stroke-width="1.5"></path><g fill="#eec1a5"><path d="M-55 228Q-46 231-41 228L-39 239Q-52 250-69 248Q-74 244-67 241L-55 235Z"></path><path d="M28 228Q36 232 42 228L39 237Q51 242 47 248Q34 251 22 247L26 238Z"></path></g><g fill="none" stroke="#986b53" stroke-width=".7"><path d="M-66 243L-63 247M-59 242L-57 246M-53 241L-51 245M42 244V248M36 243V248M30 242V247"></path></g></g><g class="roster-breathe"><g><path d="M-12 50L-25 60Q-35 65-30 85L-20 112L-22 140Q0 151 23 140L20 110L29 83Q34 65 24 60L12 50Z" fill="#b27cac"></path><path d="M-19 64Q-25 78-22 93L-16 107L-20 137L-29 140L-27 109Q-37 78-29 66Z" fill="#152434" opacity=".12" stroke="none"></path><path d="M10 67Q25 74 24 96L20 112L25 138" fill="none" stroke="#cbd7d5" opacity=".16" stroke-width="1.5"></path><path d="M-28 68Q-34 81-24 105L-21 132M27 69Q33 86 24 108L22 133" stroke="#0b1928" stroke-opacity=".22" stroke-width="4" fill="none"></path><path d="M-22 132L-18 143M-8 135L-7 145M6 135L8 144M19 132L22 142" stroke="#e0b4d2" stroke-width=".8"></path><path d="M-21 66Q0 82 21 66L14 137L0 145L-15 137Z" fill="#9b6699"></path><path d="M-10 83L10 94L-10 105L10 116L-9 130M10 83L-10 94L10 105L-10 116L9 130" fill="none" stroke="#edc6d0"></path><path d="M-24 63Q0 80 24 63" stroke="#eed1da" stroke-width="3" fill="none"></path><path d="M-17 73L-13 135M17 73L13 135" stroke="#cf9ac2"></path></g><g class="roster-head head-rapunzel"><path d="M-12 40V62Q0 68 12 61V40" fill="#eec1a5"></path><path d="M-11 46Q0 54 11 46V53Q0 60-11 53Z" fill="#89615b" opacity=".17" stroke="none"></path><path d="M-24 17Q-31 13-29 23Q-28 31-23 30M24 17Q30 13 29 24Q28 30 23 30" fill="#eec1a5"></path><path d="M-23 8Q-20-10 0-9Q22-8 24 9L22 28Q18 42 1 47Q-17 43-22 28Z" fill="#eec1a5"></path><path d="M17 4L23 11L20 30L10 43L0 48L11 43L16 29Z" fill="#8a625b" opacity=".23" stroke="none"></path><g class="roster-eyes" style="transform-origin:0px 24px"><path d="M-19 24Q-12 16-5 24Q-11 32-18 26ZM5 24Q12 16 19 24Q13 32 6 26Z" fill="#ece7dc" stroke-width=".8"></path><ellipse cx="-11" cy="24" rx="2.3" ry="2.8" fill="#68845a" stroke="none"></ellipse><ellipse cx="11" cy="24" rx="2.3" ry="2.8" fill="#68845a" stroke="none"></ellipse><g fill="#fff4db" stroke="none" opacity=".8"><circle cx="-11.8" cy="23" r=".7"></circle><circle cx="10.2" cy="23" r=".7"></circle></g><path d="M-11 23V26M11 23V26" stroke="#202b38" stroke-width="1"></path><path d="M-19 22L-17 24M17 24L19 21" fill="none" stroke="#4b3840" stroke-width="1.3"></path></g><path d="M-18 18L-7 19M7 19L18 18" fill="none" stroke="#e7bf5f" stroke-width="1.3"></path><path d="M1 26L-1 32L2 33M-6 39Q0 41 7 38" fill="none" stroke="#956c60" stroke-width=".9"></path><path d="M-5 39Q0 37 5 39" stroke="#b07978" fill="none"></path><path d="M-26 31Q-37 9-23-10Q-5-26 14-16Q32-12 29 15L24 35L18 10L13 0Q-6 15-23 10Z" fill="#e7bf5f"></path><g fill="none" stroke="#fff0bc" stroke-width="1.1" opacity=".65"><path d="M-23 4Q-10 7 9-9M-18 1Q-6 1 4-10M17-14Q26-4 24 9"></path></g><path d="M-21 4Q-18-15-3-15M-12 2Q0-14 12-12M12-10Q23-1 22 10" stroke="#c6b19b" opacity=".25" stroke-width="1.2" fill="none"></path></g></g></g><g class="roster-actor roster-rapunzel roster-action-brush" data-rig-layer="hands" transform="translate(565 286) scale(1.13)" style="--roster-breath:6.7s;--roster-blink:11.59s" stroke="#202a38" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round" pointer-events="none"><g class="roster-breathe"><g class="roster-arm roster-far" style="transform-origin:-25px 65px" data-joint="far"><g transform="translate(-25,65) rotate(22.203478532057403)"><path d="M-7 0Q-11 9 -5 52.92447448959697Q0 57.92447448959697 5 52.92447448959697Q11 10 7 0Q0-5-7 0Z" fill="#b27cac"></path><path d="M5 5Q8 18 4 51.92447448959697L1 51.92447448959697Q5 20 2 6Z" fill="#142333" opacity=".14" stroke="none"></path><path d="M-5 4Q-7 16 -3 49.92447448959697" fill="none" stroke="#b7c3c8" opacity=".3" stroke-width="1.7"></path><path d="M-8 1Q-15 11-8 21H8Q15 11 8 1Z" fill="#c797c1"></path><path d="M-4 2V20M4 2V20" stroke="#e7bfd8" stroke-width="2"></path></g><g transform="translate(-45,114) rotate(19.746836605426125)"><path d="M-6-2Q-9 8-5 41.43669871020133H5Q9 8 6-2Q0 3-6-2Z" fill="#b27cac"></path><path d="M-5 5L-3 37.43669871020133" stroke="#b8c4c9" opacity=".25" fill="none"></path><g transform="translate(0 41.43669871020133) rotate(-19.746836605426125)"><path d="M-6-3Q-10-1-8 4L-5 8Q1 10 6 5L7 1L2-2L-2-4Z" fill="#eec1a5"></path><path d="M-5 1L3 3M-4 4L2 6M0-2L-1 2" stroke="#986e5a" stroke-width=".7" fill="none"></path></g></g></g><g class="roster-arm roster-near" style="transform-origin:25px 65px" data-joint="near"><g transform="translate(25,65) rotate(-18.43494882292201)"><path d="M-7 0Q-11 9 -5 53.75872022286245Q0 58.75872022286245 5 53.75872022286245Q11 10 7 0Q0-5-7 0Z" fill="#b27cac"></path><path d="M5 5Q8 18 4 52.75872022286245L1 52.75872022286245Q5 20 2 6Z" fill="#142333" opacity=".14" stroke="none"></path><path d="M-5 4Q-7 16 -3 50.75872022286245" fill="none" stroke="#b7c3c8" opacity=".3" stroke-width="1.7"></path><path d="M-8 1Q-15 11-8 21H8Q15 11 8 1Z" fill="#c797c1"></path><path d="M-4 2V20M4 2V20" stroke="#e7bfd8" stroke-width="2"></path></g><g transform="translate(42,116) rotate(55.359052488083734)"><path d="M-6-2Q-9 8-5 66.85057965343307H5Q9 8 6-2Q0 3-6-2Z" fill="#b27cac"></path><path d="M-5 5L-3 62.85057965343307" stroke="#b8c4c9" opacity=".25" fill="none"></path><g transform="translate(0 66.85057965343307) rotate(-55.359052488083734)"><path d="M-6-3Q-10-1-8 4L-5 8Q1 10 6 5L7 1L2-2L-2-4Z" fill="#eec1a5"></path><path d="M-5 1L3 3M-4 4L2 6M0-2L-1 2" stroke="#986e5a" stroke-width=".7" fill="none"></path><g class="roster-tool tool-brush"><g><path d="M-3-24L4 16" stroke="#e9bd79" stroke-width="4"></path><path d="M4 16L5 23" stroke="#f8d58a" stroke-width="3"></path></g></g></g></g></g></g></g></svg>

@@ -41,6 +41,7 @@ import { audioEngine } from '../utils/audioEngine';
 export type { YouTubePlayerMode };
 
 interface MusicCenterProps {
+  inline?: boolean;
   openRequest?: number;
   soundscapeControls?: React.ReactNode;
   initialAmbienceProfile?: string;
@@ -57,6 +58,7 @@ declare global {
 
 export const MusicCenter: React.FC<MusicCenterProps> = ({
   initialAmbienceProfile,
+  inline = false,
   openRequest = 0,
   soundscapeControls,
   onAudioStateChange,
@@ -85,7 +87,6 @@ export const MusicCenter: React.FC<MusicCenterProps> = ({
   }, [openRequest]);
   useEffect(() => {
     if (!isExpanded) return;
-    musicRoot.current?.scrollIntoView({ block: 'nearest', behavior: 'instant' });
     musicRoot.current?.querySelector<HTMLButtonElement>('[aria-label="Close music player"]')?.focus();
     const key = (event: KeyboardEvent) => {
       if (event.key === 'Escape') { setIsExpanded(false); returnFocus.current?.focus(); }
@@ -124,6 +125,11 @@ export const MusicCenter: React.FC<MusicCenterProps> = ({
   // --- YOUTUBE IFRAME PLAYER REFS ---
   const playerRef = useRef<any>(null);
   const playerContainerId = useRef<string>(`yt-player-${Math.random().toString(36).substring(2, 9)}`);
+  const [playerReady, setPlayerReady] = useState(false);
+  const pendingPlay = useRef(false);
+  const failedVideos = useRef(new Set<string>());
+  const requestedVideo = useRef<string | null>(null);
+  const latestHandlers = useRef({ state: (_state: number) => {}, error: (_code: number) => {} });
   const progressIntervalRef = useRef<any>(null);
   const isAdvancingRef = useRef<boolean>(false);
 
@@ -158,16 +164,24 @@ export const MusicCenter: React.FC<MusicCenterProps> = ({
           events: {
             onReady: (event: any) => {
               if (!isMounted) return;
+              setPlayerReady(true);
               event.target.setVolume(volume);
               if (isMuted) event.target.mute();
             },
             onStateChange: (event: any) => {
               if (!isMounted) return;
-              handlePlayerStateChange(event.data);
+              latestHandlers.current.state(event.data);
+            },
+            onAutoplayBlocked: () => {
+              if (!isMounted) return;
+              pendingPlay.current = false;
+              setIsPlaying(false);
+              setIsBuffering(false);
+              setErrorMessage('Your browser paused playback. Press Play to start the music.');
             },
             onError: (event: any) => {
               if (!isMounted) return;
-              handlePlayerError(event.data);
+              latestHandlers.current.error(event.data);
             },
           },
         });
@@ -176,21 +190,22 @@ export const MusicCenter: React.FC<MusicCenterProps> = ({
       }
     };
 
-    if (!window.YT) {
-      const tag = document.createElement('script');
-      tag.src = 'https://www.youtube.com/iframe_api';
-      const firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag?.parentNode?.insertBefore(tag, firstScriptTag);
-
-      window.onYouTubeIframeAPIReady = () => {
-        initPlayer();
-      };
-    } else {
+    const previousReady = window.onYouTubeIframeAPIReady;
+    const apiReady = () => { previousReady?.(); initPlayer(); };
+    if (window.YT?.Player) {
       initPlayer();
+    } else {
+      window.onYouTubeIframeAPIReady = apiReady;
+      if (!document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        document.head.appendChild(tag);
+      }
     }
 
     return () => {
       isMounted = false;
+      if (window.onYouTubeIframeAPIReady === apiReady) window.onYouTubeIframeAPIReady = previousReady;
       if (progressIntervalRef.current) {
         clearInterval(progressIntervalRef.current);
       }
@@ -205,17 +220,16 @@ export const MusicCenter: React.FC<MusicCenterProps> = ({
 
   // --- SYNC CURRENT TRACK TO YOUTUBE PLAYER ---
   useEffect(() => {
-    if (!currentTrack || !playerRef.current) return;
+    if (!currentTrack || !playerReady || !playerRef.current) return;
 
     try {
-      if (typeof playerRef.current.getVideoData === 'function') {
-        const currentData = playerRef.current.getVideoData();
-        if (currentData && currentData.video_id === currentTrack.videoId) {
-          return;
-        }
-      }
-
-      if (isPlaying) {
+      if (requestedVideo.current === currentTrack.videoId) return;
+      requestedVideo.current = currentTrack.videoId;
+      setCurrentTime(0);
+      setDuration(0);
+      if (pendingPlay.current || isPlaying) {
+        pendingPlay.current = true;
+        setIsBuffering(true);
         playerRef.current.loadVideoById(currentTrack.videoId);
       } else {
         playerRef.current.cueVideoById(currentTrack.videoId);
@@ -231,7 +245,7 @@ export const MusicCenter: React.FC<MusicCenterProps> = ({
     } catch (err) {
       console.warn('Error loading video by ID:', err);
     }
-  }, [currentIndex, currentTrack?.videoId]);
+  }, [currentIndex, currentTrack?.videoId, playerReady]);
 
   // --- PROGRESS INTERVAL TRACKER ---
   useEffect(() => {
@@ -262,6 +276,7 @@ export const MusicCenter: React.FC<MusicCenterProps> = ({
     // YT.PlayerState: -1=unstarted, 0=ended, 1=playing, 2=paused, 3=buffering, 5=video cued
     if (state === 1) {
       // PLAYING
+      pendingPlay.current = true;
       setIsPlaying(true);
       setIsBuffering(false);
       setErrorMessage(null);
@@ -298,6 +313,7 @@ export const MusicCenter: React.FC<MusicCenterProps> = ({
       setCurrentIndex(0);
       setTimeout(() => { isAdvancingRef.current = false; }, 1000);
     } else {
+      pendingPlay.current = false;
       setIsPlaying(false);
       isAdvancingRef.current = false;
     }
@@ -310,33 +326,60 @@ export const MusicCenter: React.FC<MusicCenterProps> = ({
       msg = 'Creator restricted video from being embedded outside YouTube.';
     } else if (errorCode === 100) {
       msg = 'Video not found or removed.';
+    } else if (errorCode === 153) {
+      msg = 'YouTube could not verify this player. Try reloading the page.';
     } else if (errorCode === 2) {
       msg = 'Invalid video ID parameter.';
     }
-    setErrorMessage(`${msg} Auto-skipping to next track in queue...`);
+    setIsBuffering(false);
+    setIsPlaying(false);
+    if (!pendingPlay.current || !currentTrack) {
+      setErrorMessage(msg);
+      return;
+    }
+    failedVideos.current.add(currentTrack.videoId);
+    const nextIndex = queue.findIndex((track, index) => index > currentIndex && !failedVideos.current.has(track.videoId));
+    if ([2, 100, 101, 150].includes(errorCode) && nextIndex >= 0) {
+      setErrorMessage(`${msg} Trying the next track…`);
+      setCurrentIndex(nextIndex);
+    } else {
+      pendingPlay.current = false;
+      setErrorMessage(`${msg} Choose another track or a room soundscape.`);
+    }
+  };
+  latestHandlers.current = { state: handlePlayerStateChange, error: handlePlayerError };
 
-    // Gracefully skip to next track after 2 seconds
-    setTimeout(() => {
-      if (queue.length > 1) {
-        handleNextTrack();
-      }
-    }, 2200);
+  // Remember a click made before the iframe is ready; issue only one load per selection.
+  const requestPlayback = (track: YouTubeTrack) => {
+    pendingPlay.current = true;
+    failedVideos.current.clear();
+    setErrorMessage(null);
+    setCurrentTime(0);
+    setDuration(0);
+    setIsBuffering(true);
+    if (playerReady && playerRef.current) {
+      requestedVideo.current = track.videoId;
+      playerRef.current.loadVideoById(track.videoId);
+    }
   };
 
   // --- CONTROLS: PLAY, PAUSE, NEXT, PREV, SEEK, VOLUME ---
   const handleTogglePlay = () => {
     audioEngine.playClick();
     if (!playerRef.current || typeof playerRef.current.playVideo !== 'function') {
-      setErrorMessage('YouTube is not ready. Check your connection, or play a room soundscape above.');
+      if (currentTrack) requestPlayback(currentTrack);
       setIsExpanded(true);
       return;
     }
 
     try {
       if (isPlaying) {
+        pendingPlay.current = false;
         playerRef.current.pauseVideo();
         setIsPlaying(false);
       } else {
+        pendingPlay.current = true;
+        setErrorMessage(null);
         playerRef.current.playVideo();
         // Playback state comes from the actual YouTube state event.
       }
@@ -447,10 +490,7 @@ export const MusicCenter: React.FC<MusicCenterProps> = ({
       youtubeService.saveQueue(newQueue);
       setCurrentIndex(currentIndex + 1);
     }
-    setIsPlaying(true);
-    if (playerRef.current && typeof playerRef.current.loadVideoById === 'function') {
-      playerRef.current.loadVideoById(track.videoId);
-    }
+    requestPlayback(track);
   };
 
   const handlePlayNext = (track: YouTubeTrack) => {
@@ -556,10 +596,7 @@ export const MusicCenter: React.FC<MusicCenterProps> = ({
     setQueue(list);
     setCurrentIndex(0);
     youtubeService.saveQueue(list);
-    setIsPlaying(true);
-    if (playerRef.current && typeof playerRef.current.loadVideoById === 'function') {
-      playerRef.current.loadVideoById(list[0].videoId);
-    }
+    requestPlayback(list[0]);
   };
 
   const handleCreatePlaylistSubmit = (e: React.FormEvent) => {
@@ -617,7 +654,7 @@ export const MusicCenter: React.FC<MusicCenterProps> = ({
   const isCurrentFavorited = currentTrack ? youtubeService.isFavorite(currentTrack.videoId) : false;
 
   return (
-    <div ref={musicRoot} className={`workspace-music ${isExpanded ? 'music-is-expanded' : ''} font-mono text-xs text-gray-200 select-none`}>
+    <div ref={musicRoot} hidden={!inline && !isExpanded} className={`workspace-music ${inline ? 'music-inline' : ''} ${isExpanded ? 'music-is-expanded' : ''} font-mono text-xs text-gray-200 select-none`}>
       <div className="music-dock">
         <div className="dock-track"><div className="dock-cover">{currentTrack?.thumbnail ? <img src={currentTrack.thumbnail} alt=""/> : <Music size={22}/>}</div><div><span className="dock-eyebrow">FOCUS RADIO</span><strong>{currentTrack?.title || 'Your study soundtrack'}</strong><small>{currentTrack?.channel || 'Open the library to pick a playlist'}</small></div><button onClick={handleToggleFavoriteCurrent} title="Like current track" aria-pressed={isCurrentFavorited}><Heart size={16} fill={isCurrentFavorited ? 'currentColor' : 'none'}/></button></div>
         <div className="dock-transport"><div className="dock-buttons">
@@ -901,7 +938,7 @@ export const MusicCenter: React.FC<MusicCenterProps> = ({
                           if (favorites.length > 0) {
                             setQueue(favorites);
                             setCurrentIndex(0);
-                            setIsPlaying(true);
+                            requestPlayback(favorites[0]);
                           }
                         }}
                         className="text-arcade-cyan hover:underline"
@@ -1345,10 +1382,7 @@ export const MusicCenter: React.FC<MusicCenterProps> = ({
                         onClick={() => {
                           audioEngine.playClick();
                           setCurrentIndex(idx);
-                          setIsPlaying(true);
-                          if (playerRef.current && typeof playerRef.current.loadVideoById === 'function') {
-                            playerRef.current.loadVideoById(track.videoId);
-                          }
+                          requestPlayback(track);
                         }}
                         className="flex items-center gap-1.5 min-w-0 flex-1 cursor-pointer"
                       >

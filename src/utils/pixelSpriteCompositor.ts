@@ -4,6 +4,7 @@
 // ============================================================================
 
 import { Character } from '../types/character';
+import { drawSignatureSprite, SIGNATURE_CHARACTERS } from './signatureSprites';
 
 export type CharacterGender = 'boy' | 'girl';
 
@@ -55,6 +56,7 @@ export type AccessoryId =
   | 'flow-aura';
 
 export interface CustomAppearanceState {
+  signatureCharacter?: string | null;
   gender: CharacterGender;
   outfit: OutfitId;
   hairStyle: HairStyleId;
@@ -392,11 +394,12 @@ export class PixelSpriteCompositor {
   // ==========================================================================
 
   composite(state: CustomAppearanceState, costume?: ImageData) {
-    if (costume && state.outfit === 'arachnid-suit' && state.accessory === 'hero-mask') {
+    if (costume && !state.signatureCharacter && state.outfit === 'arachnid-suit' && state.accessory === 'hero-mask') {
       this.buffer.set(costume.data);
       return;
     }
     this.clear();
+    if (drawSignatureSprite(this, state.signatureCharacter)) return;
 
     const skin = this.getSkinPalette(state.skinTone);
     const hair = this.getHairPalette(state.hairColor);
@@ -1277,6 +1280,7 @@ export function getAppearanceForCharacter(
   }
 
   return {
+    signatureCharacter: SIGNATURE_CHARACTERS.has(char.id) ? char.id : undefined,
     gender: charGender,
     outfit,
     hairStyle,

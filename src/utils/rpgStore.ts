@@ -370,6 +370,7 @@ class RPGStore {
     try {
       localStorage.setItem('focusverse_tasks_v2', JSON.stringify(tasks));
     } catch (_) {}
+    window.dispatchEvent(new CustomEvent('focusverse_tasks_changed'));
   }
 
   public addTask(task: Omit<RPGTask, 'id' | 'createdAt' | 'actualMinutes' | 'sessionsCount'>): RPGTask {

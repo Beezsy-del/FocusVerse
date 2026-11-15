@@ -1,0 +1,410 @@
+[
+  {
+    "id": "miles-morales",
+    "tool": "spray",
+    "path": "public/assets/characters/roster-study-rigs/miles-morales-spray.svg",
+    "viewBox": "415 228 330 350",
+    "anchor": [
+      565,
+      278
+    ],
+    "scale": 1.16,
+    "stance": "standing"
+  },
+  {
+    "id": "miles-morales",
+    "tool": "spark",
+    "path": "public/assets/characters/roster-study-rigs/miles-morales-spark.svg",
+    "viewBox": "415 228 330 350",
+    "anchor": [
+      565,
+      278
+    ],
+    "scale": 1.16,
+    "stance": "standing"
+  },
+  {
+    "id": "gwen-stacy",
+    "tool": "sticks",
+    "path": "public/assets/characters/roster-study-rigs/gwen-stacy-sticks.svg",
+    "viewBox": "415 230 330 350",
+    "anchor": [
+      565,
+      280
+    ],
+    "scale": 1.15,
+    "stance": "seated"
+  },
+  {
+    "id": "gwen-stacy",
+    "tool": "cymbal",
+    "path": "public/assets/characters/roster-study-rigs/gwen-stacy-cymbal.svg",
+    "viewBox": "415 230 330 350",
+    "anchor": [
+      565,
+      280
+    ],
+    "scale": 1.15,
+    "stance": "seated"
+  },
+  {
+    "id": "gojo-satoru",
+    "tool": "infinity",
+    "path": "public/assets/characters/roster-study-rigs/gojo-satoru-infinity.svg",
+    "viewBox": "415 219 330 350",
+    "anchor": [
+      565,
+      269
+    ],
+    "scale": 1.2,
+    "stance": "standing"
+  },
+  {
+    "id": "gojo-satoru",
+    "tool": "blindfold",
+    "path": "public/assets/characters/roster-study-rigs/gojo-satoru-blindfold.svg",
+    "viewBox": "415 219 330 350",
+    "anchor": [
+      565,
+      269
+    ],
+    "scale": 1.2,
+    "stance": "standing"
+  },
+  {
+    "id": "levi-ackerman",
+    "tool": "blade",
+    "path": "public/assets/characters/roster-study-rigs/levi-ackerman-blade.svg",
+    "viewBox": "415 243 330 350",
+    "anchor": [
+      565,
+      293
+    ],
+    "scale": 1.1,
+    "stance": "seated"
+  },
+  {
+    "id": "levi-ackerman",
+    "tool": "cup",
+    "path": "public/assets/characters/roster-study-rigs/levi-ackerman-cup.svg",
+    "viewBox": "415 243 330 350",
+    "anchor": [
+      565,
+      293
+    ],
+    "scale": 1.1,
+    "stance": "seated"
+  },
+  {
+    "id": "l-lawliet",
+    "tool": "pencil",
+    "path": "public/assets/characters/roster-study-rigs/l-lawliet-pencil.svg",
+    "viewBox": "415 244 330 350",
+    "anchor": [
+      565,
+      294
+    ],
+    "scale": 1.1,
+    "stance": "crouch"
+  },
+  {
+    "id": "l-lawliet",
+    "tool": "sugar",
+    "path": "public/assets/characters/roster-study-rigs/l-lawliet-sugar.svg",
+    "viewBox": "415 244 330 350",
+    "anchor": [
+      565,
+      294
+    ],
+    "scale": 1.1,
+    "stance": "crouch"
+  },
+  {
+    "id": "elsa",
+    "tool": "snow",
+    "path": "public/assets/characters/roster-study-rigs/elsa-snow.svg",
+    "viewBox": "415 219 330 350",
+    "anchor": [
+      565,
+      269
+    ],
+    "scale": 1.2,
+    "stance": "gown"
+  },
+  {
+    "id": "elsa",
+    "tool": "ribbon",
+    "path": "public/assets/characters/roster-study-rigs/elsa-ribbon.svg",
+    "viewBox": "415 219 330 350",
+    "anchor": [
+      565,
+      269
+    ],
+    "scale": 1.2,
+    "stance": "gown"
+  },
+  {
+    "id": "rapunzel",
+    "tool": "brush",
+    "path": "public/assets/characters/roster-study-rigs/rapunzel-brush.svg",
+    "viewBox": "415 236 330 350",
+    "anchor": [
+      565,
+      286
+    ],
+    "scale": 1.13,
+    "stance": "seated"
+  },
+  {
+    "id": "rapunzel",
+    "tool": "lantern",
+    "path": "public/assets/characters/roster-study-rigs/rapunzel-lantern.svg",
+    "viewBox": "415 236 330 350",
+    "anchor": [
+      565,
+      286
+    ],
+    "scale": 1.13,
+    "stance": "seated"
+  },
+  {
+    "id": "moana",
+    "tool": "compass",
+    "path": "public/assets/characters/roster-study-rigs/moana-compass.svg",
+    "viewBox": "415 231 330 350",
+    "anchor": [
+      565,
+      281
+    ],
+    "scale": 1.15,
+    "stance": "standing"
+  },
+  {
+    "id": "moana",
+    "tool": "paddle",
+    "path": "public/assets/characters/roster-study-rigs/moana-paddle.svg",
+    "viewBox": "415 231 330 350",
+    "anchor": [
+      565,
+      281
+    ],
+    "scale": 1.15,
+    "stance": "standing"
+  },
+  {
+    "id": "hermione-granger",
+    "tool": "quill",
+    "path": "public/assets/characters/roster-study-rigs/hermione-granger-quill.svg",
+    "viewBox": "415 232 330 350",
+    "anchor": [
+      565,
+      282
+    ],
+    "scale": 1.15,
+    "stance": "seated"
+  },
+  {
+    "id": "hermione-granger",
+    "tool": "wand",
+    "path": "public/assets/characters/roster-study-rigs/hermione-granger-wand.svg",
+    "viewBox": "415 232 330 350",
+    "anchor": [
+      565,
+      282
+    ],
+    "scale": 1.15,
+    "stance": "seated"
+  },
+  {
+    "id": "wednesday-addams",
+    "tool": "type",
+    "path": "public/assets/characters/roster-study-rigs/wednesday-addams-type.svg",
+    "viewBox": "460 233 330 350",
+    "anchor": [
+      610,
+      283
+    ],
+    "scale": 1.14,
+    "stance": "seated"
+  },
+  {
+    "id": "wednesday-addams",
+    "tool": "bow",
+    "path": "public/assets/characters/roster-study-rigs/wednesday-addams-bow.svg",
+    "viewBox": "460 233 330 350",
+    "anchor": [
+      610,
+      283
+    ],
+    "scale": 1.14,
+    "stance": "seated"
+  },
+  {
+    "id": "officer-k",
+    "tool": "scanner",
+    "path": "public/assets/characters/roster-study-rigs/officer-k-scanner.svg",
+    "viewBox": "415 230 330 350",
+    "anchor": [
+      565,
+      280
+    ],
+    "scale": 1.15,
+    "stance": "seated"
+  },
+  {
+    "id": "officer-k",
+    "tool": "horse",
+    "path": "public/assets/characters/roster-study-rigs/officer-k-horse.svg",
+    "viewBox": "415 230 330 350",
+    "anchor": [
+      565,
+      280
+    ],
+    "scale": 1.15,
+    "stance": "seated"
+  },
+  {
+    "id": "neo",
+    "tool": "type",
+    "path": "public/assets/characters/roster-study-rigs/neo-type.svg",
+    "viewBox": "415 230 330 350",
+    "anchor": [
+      565,
+      280
+    ],
+    "scale": 1.15,
+    "stance": "seated"
+  },
+  {
+    "id": "neo",
+    "tool": "spoon",
+    "path": "public/assets/characters/roster-study-rigs/neo-spoon.svg",
+    "viewBox": "415 230 330 350",
+    "anchor": [
+      565,
+      280
+    ],
+    "scale": 1.15,
+    "stance": "seated"
+  },
+  {
+    "id": "cozy-study-girl",
+    "tool": "pencil",
+    "path": "public/assets/characters/roster-study-rigs/cozy-study-girl-pencil.svg",
+    "viewBox": "415 235 330 350",
+    "anchor": [
+      565,
+      285
+    ],
+    "scale": 1.13,
+    "stance": "seated"
+  },
+  {
+    "id": "cozy-study-girl",
+    "tool": "cup",
+    "path": "public/assets/characters/roster-study-rigs/cozy-study-girl-cup.svg",
+    "viewBox": "415 235 330 350",
+    "anchor": [
+      565,
+      285
+    ],
+    "scale": 1.13,
+    "stance": "seated"
+  },
+  {
+    "id": "late-night-study-boy",
+    "tool": "type",
+    "path": "public/assets/characters/roster-study-rigs/late-night-study-boy-type.svg",
+    "viewBox": "415 231 330 350",
+    "anchor": [
+      565,
+      281
+    ],
+    "scale": 1.15,
+    "stance": "seated"
+  },
+  {
+    "id": "late-night-study-boy",
+    "tool": "headphones",
+    "path": "public/assets/characters/roster-study-rigs/late-night-study-boy-headphones.svg",
+    "viewBox": "415 231 330 350",
+    "anchor": [
+      565,
+      281
+    ],
+    "scale": 1.15,
+    "stance": "seated"
+  },
+  {
+    "id": "purring-window-cat",
+    "tool": "paw",
+    "path": "public/assets/characters/roster-study-rigs/purring-window-cat-paw.svg",
+    "viewBox": "370 293 270 195",
+    "anchor": [
+      505,
+      343
+    ],
+    "scale": 1.15,
+    "stance": "pet"
+  },
+  {
+    "id": "purring-window-cat",
+    "tool": "leaf",
+    "path": "public/assets/characters/roster-study-rigs/purring-window-cat-leaf.svg",
+    "viewBox": "370 293 270 195",
+    "anchor": [
+      505,
+      343
+    ],
+    "scale": 1.15,
+    "stance": "pet"
+  },
+  {
+    "id": "loyal-fireplace-dog",
+    "tool": "paw",
+    "path": "public/assets/characters/roster-study-rigs/loyal-fireplace-dog-paw.svg",
+    "viewBox": "370 370 270 195",
+    "anchor": [
+      505,
+      420
+    ],
+    "scale": 1.15,
+    "stance": "pet"
+  },
+  {
+    "id": "loyal-fireplace-dog",
+    "tool": "ear",
+    "path": "public/assets/characters/roster-study-rigs/loyal-fireplace-dog-ear.svg",
+    "viewBox": "370 370 270 195",
+    "anchor": [
+      505,
+      420
+    ],
+    "scale": 1.15,
+    "stance": "pet"
+  },
+  {
+    "id": "tony-stark",
+    "tool": "reactor",
+    "path": "public/assets/characters/roster-study-rigs/tony-stark-reactor.svg",
+    "viewBox": "420 255 230 330",
+    "anchor": [
+      480,
+      262
+    ],
+    "scale": 3,
+    "stance": "seated"
+  },
+  {
+    "id": "tony-stark",
+    "tool": "diagnostics",
+    "path": "public/assets/characters/roster-study-rigs/tony-stark-diagnostics.svg",
+    "viewBox": "420 255 230 330",
+    "anchor": [
+      480,
+      262
+    ],
+    "scale": 3,
+    "stance": "seated"
+  }
+]

@@ -92,7 +92,7 @@ export const NavigationHUD: React.FC<NavigationHUDProps> = ({
   const xpPercentage = Math.min(100, Math.round((profile.currentXp / profile.nextLevelXp) * 100));
 
   return (
-    <header className="relative z-40 bg-void-darkest/95 border-b-2 border-arcade-border shadow-[0_4px_16px_rgba(0,0,0,0.8)] backdrop-blur-md select-none font-mono text-xs">
+    <header data-active-trainer={activeCharacter.id} className="relative z-40 bg-void-darkest/95 border-b-2 border-arcade-border shadow-[0_4px_16px_rgba(0,0,0,0.8)] backdrop-blur-md select-none font-mono text-xs">
       {/* Top Telemetry / Status Bar */}
       <div className="max-w-7xl mx-auto px-3 sm:px-4 py-2 flex items-center justify-between gap-2 border-b border-arcade-border/50">
         {/* Left: Brand + Kernel Version */}

@@ -1,0 +1,62 @@
+import {RigPoint} from '../hooks/useArticulatedPose';
+export interface FigurePose{far:[RigPoint,RigPoint];near:[RigPoint,RigPoint];head:[number,number,number];}
+export interface IllustratedRig{x:number;y:number;scale:number;stance:'standing'|'seated'|'crouch'|'gown'|'pet';shoulders:[RigPoint,RigPoint];head:[number,number,number];poses:Record<string,FigurePose>;idle:FigurePose;observe:FigurePose;ground:number;portraitScale?:number;}
+// Every joint and silhouette is authored for the companion, in an unscaled local
+// coordinate system. Furniture uses the same room-space coordinates.
+export const ILLUSTRATED_RIGS:Record<string,IllustratedRig>={
+ 'miles-morales':{x:578,y:224,scale:1.14,stance:'standing',shoulders:[[-35,68],[34,65]],head:[-2,0,-2],portraitScale:.84,ground:304,
+ idle:{far:[[-44,124],[-30,175]],near:[[49,121],[9,153]],head:[0,0,0]},
+ observe:{far:[[-48,122],[-9,151]],near:[[49,119],[0,139]],head:[-2,2,-5]},
+ poses:{spray:{far:[[-45,123],[-29,175]],near:[[5,115],[-43,151]],head:[-3,2,-6]},spark:{far:[[-44,124],[-30,175]],near:[[61,116],[72,67]],head:[3,1,3]}}},
+ 'gwen-stacy':{x:570,y:231,scale:1.12,stance:'seated',shoulders:[[-23,63],[24,65]],head:[-3,0,3],ground:301,
+ idle:{far:[[-43,122],[-29,173]],near:[[44,125],[29,175]],head:[0,0,0]},
+ observe:{far:[[-44,120],[-28,173]],near:[[48,86],[24,24]],head:[-2,1,-3]},
+ poses:{sticks:{far:[[-48,124],[-45,175]],near:[[49,122],[-5,174]],head:[-2,3,-4]},cymbal:{far:[[-47,125],[-38,175]],near:[[71,113],[109,157]],head:[4,0,7]}}},
+ 'l-lawliet':{x:641,y:247,scale:1.16,stance:'crouch',shoulders:[[-28,71],[22,83]],head:[-14,10,-9],ground:216,
+ idle:{far:[[-46,127],[-18,161]],near:[[41,122],[-8,58]],head:[0,0,0]},
+ observe:{far:[[-46,125],[-24,158]],near:[[42,124],[-6,56]],head:[3,-1,7]},
+ poses:{pencil:{far:[[-47,124],[-21,161]],near:[[-20,126],[-87,174]],head:[-4,4,-9]},sugar:{far:[[-49,125],[-23,160]],near:[[42,119],[-17,48]],head:[-1,1,-3]}}},
+ 'tony-stark':{x:559,y:234,scale:1.12,stance:'seated',shoulders:[[-41,70],[42,66]],head:[-1,0,-3],ground:306,
+ idle:{far:[[-49,137],[-27,197]],near:[[58,133],[18,197]],head:[0,0,0]},
+ observe:{far:[[-47,136],[-29,197]],near:[[56,126],[11,142]],head:[-4,2,-7]},
+ poses:{reactor:{far:[[-49,139],[-47,201]],near:[[58,137],[-29,203]],head:[-4,3,-7]},diagnostics:{far:[[-49,138],[-43,200]],near:[[55,129],[12,172]],head:[-6,1,-11]}}},
+ 'gojo-satoru':{x:594,y:218,scale:1.16,stance:'standing',shoulders:[[-30,64],[30,59]],head:[3,-2,5],ground:303,
+ idle:{far:[[-38,120],[-22,154]],near:[[49,111],[32,145]],head:[0,0,0]},observe:{far:[[-38,120],[-22,154]],near:[[53,103],[25,118]],head:[5,-1,7]},
+ poses:{infinity:{far:[[-38,119],[-22,154]],near:[[52,101],[50,105]],head:[5,0,6]},blindfold:{far:[[-38,119],[-22,154]],near:[[64,72],[24,22]],head:[-2,2,-3]}}},
+ 'levi-ackerman':{x:571,y:254,scale:1.06,stance:'seated',shoulders:[[-28,60],[30,66]],head:[-5,0,-7],ground:301,
+ idle:{far:[[-48,118],[-33,183]],near:[[49,120],[6,172]],head:[0,0,0]},observe:{far:[[-48,118],[-33,183]],near:[[49,120],[6,172]],head:[4,-2,6]},
+ poses:{blade:{far:[[-45,124],[-25,184]],near:[[43,127],[-6,185]],head:[-4,3,-6]},cup:{far:[[-46,120],[-32,182]],near:[[49,113],[0,53]],head:[-1,0,-3]}}},
+ 'officer-k':{x:611,y:230,scale:1.13,stance:'standing',shoulders:[[-34,69],[32,65]],head:[-3,1,-1],ground:300,
+ idle:{far:[[-45,129],[-27,168]],near:[[45,129],[26,169]],head:[0,0,0]},observe:{far:[[-45,129],[-27,168]],near:[[48,109],[12,95]],head:[-3,1,-2]},
+ poses:{scanner:{far:[[-45,129],[-27,168]],near:[[53,121],[4,139]],head:[-2,3,-2]},horse:{far:[[-47,127],[-5,155]],near:[[49,126],[7,145]],head:[-2,3,-3]}}},
+ 'neo':{x:578,y:240,scale:1.1,stance:'seated',shoulders:[[-28,62],[28,64]],head:[-3,0,-3],ground:300,
+ idle:{far:[[-45,125],[-6,186]],near:[[49,127],[11,186]],head:[0,0,0]},observe:{far:[[-45,125],[-6,186]],near:[[49,127],[11,186]],head:[-3,0,-3]},
+ poses:{type:{far:[[-47,126],[-40,204]],near:[[46,133],[-5,202]],head:[-2,2,-2]},spoon:{far:[[-45,127],[-21,187]],near:[[52,114],[38,125]],head:[3,1,3]}}},
+ 'elsa':{x:592,y:229,scale:1.12,stance:'gown',shoulders:[[-23,65],[22,59]],head:[3,0,5],ground:302,
+ idle:{far:[[-36,117],[-13,150]],near:[[41,108],[18,140]],head:[0,0,0]},observe:{far:[[-36,117],[-13,150]],near:[[42,104],[9,98]],head:[4,0,5]},
+ poses:{snow:{far:[[-37,115],[-11,142]],near:[[46,100],[51,114]],head:[4,2,4]},ribbon:{far:[[-36,111],[-15,138]],near:[[46,94],[44,84]],head:[2,-1,4]}}},
+ 'rapunzel':{x:609,y:247,scale:1.08,stance:'seated',shoulders:[[-25,65],[23,59]],head:[-4,-1,-5],ground:302,
+ idle:{far:[[-43,122],[-25,188]],near:[[41,113],[-9,150]],head:[0,0,0]},observe:{far:[[-43,122],[-25,188]],near:[[37,105],[-6,75]],head:[-4,0,-5]},
+ poses:{brush:{far:[[-47,124],[-45,185]],near:[[13,127],[-65,190]],head:[-4,3,-7]},lantern:{far:[[-45,122],[-29,189]],near:[[48,109],[39,126]],head:[4,0,8]}}},
+ 'moana':{x:596,y:239,scale:1.1,stance:'standing',shoulders:[[-33,64],[31,58]],head:[-1,-1,-3],ground:304,
+ idle:{far:[[-43,116],[-27,156]],near:[[45,113],[23,143]],head:[0,0,0]},observe:{far:[[-43,116],[-27,156]],near:[[59,77],[21,22]],head:[-3,-2,-6]},
+ poses:{compass:{far:[[-43,115],[-22,155]],near:[[47,104],[15,120]],head:[-3,2,-6]},paddle:{far:[[-35,118],[28,135]],near:[[54,119],[7,180]],head:[3,0,4]}}},
+ 'hermione-granger':{x:628,y:232,scale:1.1,stance:'standing',shoulders:[[-25,66],[26,59]],head:[-4,0,-5],ground:304,
+ idle:{far:[[-39,121],[-14,165]],near:[[44,113],[0,161]],head:[0,0,0]},observe:{far:[[-39,121],[-14,165]],near:[[49,86],[17,22]],head:[2,-1,5]},
+ poses:{quill:{far:[[-44,126],[-44,188]],near:[[0,133],[-66,200]],head:[-4,4,-8]},wand:{far:[[-40,122],[-17,162]],near:[[50,110],[44,128]],head:[4,0,6]}}},
+ 'wednesday-addams':{x:618,y:244,scale:1.1,stance:'seated',shoulders:[[-24,62],[24,62]],head:[0,0,0],ground:303,
+ idle:{far:[[-42,124],[-9,184]],near:[[42,124],[8,184]],head:[0,0,0]},observe:{far:[[-42,124],[-9,184]],near:[[42,124],[8,184]],head:[-3,0,-6]},
+ poses:{type:{far:[[-57,130],[-109,205]],near:[[-2,140],[-85,207]],head:[-3,2,-6]},bow:{far:[[-42,118],[-51,119]],near:[[31,136],[-32,207]],head:[-1,3,-3]}}},
+ 'cozy-study-girl':{x:583,y:246,scale:1.1,stance:'seated',shoulders:[[-27,70],[26,65]],head:[-4,5,-5],ground:302,
+ idle:{far:[[-47,129],[-18,170]],near:[[47,125],[8,167]],head:[0,0,0]},observe:{far:[[-47,129],[-18,170]],near:[[47,125],[8,167]],head:[4,-2,9]},
+ poses:{pencil:{far:[[-48,132],[-44,199]],near:[[9,139],[-42,201]],head:[-2,2,-2]},cup:{far:[[-36,117],[-9,115]],near:[[40,117],[18,112]],head:[0,3,-2]}}},
+ 'late-night-study-boy':{x:570,y:249,scale:1.08,stance:'seated',shoulders:[[-29,76],[29,79]],head:[-7,8,-8],ground:303,
+ idle:{far:[[-45,139],[-36,194]],near:[[48,137],[6,166]],head:[0,0,0]},observe:{far:[[-45,139],[-36,194]],near:[[44,134],[-10,61]],head:[-3,1,-4]},
+ poses:{type:{far:[[-48,139],[-51,198]],near:[[43,140],[-10,201]],head:[-3,3,-7]},headphones:{far:[[-44,137],[-35,194]],near:[[61,91],[21,30]],head:[2,0,4]}}},
+};
+
+export const ILLUSTRATED_PETS:Record<string,{x:number;y:number;scale:number;stance:'pet';ground:number}>={
+ 'purring-window-cat':{x:530,y:372,scale:1.14,stance:'pet',ground:88},
+ 'loyal-fireplace-dog':{x:535,y:414,scale:1.14,stance:'pet',ground:120},
+};
+export const ILLUSTRATED_PLACEMENTS={...ILLUSTRATED_RIGS,...ILLUSTRATED_PETS};
